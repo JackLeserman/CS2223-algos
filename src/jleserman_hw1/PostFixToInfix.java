@@ -30,7 +30,7 @@ public class PostFixToInfix {
 		while (!StdIn.isEmpty()) {
 			// Read token. push if operator.
 			String s = StdIn.readString();
-			if (!s.equals("+") || !s.equals("-") || !s.equals("/") || !s.equals("-") ) {
+			if (!s.equals("+") && !s.equals("-") &&  !s.equals("/") && !s.equals("*") ) {
 				vals.push(Double.parseDouble(s));
 				exprs.push(s);
 			} else if (s.equals("+")) {
