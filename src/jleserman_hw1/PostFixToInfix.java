@@ -27,10 +27,11 @@ public class PostFixToInfix {
 	public static void main(String[] args) {
 		FixedCapacityStack<String> exprs = new FixedCapacityStack<String>(100);
 		FixedCapacityStack<Double> vals = new FixedCapacityStack<Double>(100);
+
 		while (!StdIn.isEmpty()) {
 			// Read token. push if operator.
 			String s = StdIn.readString();
-			if (!s.equals("+") && !s.equals("-") &&  !s.equals("/") && !s.equals("*") ) {
+			if (!s.equals("+") && !s.equals("-") && !s.equals("/") && !s.equals("*")) {
 				vals.push(Double.parseDouble(s));
 				exprs.push(s);
 			} else if (s.equals("+")) {
@@ -39,15 +40,18 @@ public class PostFixToInfix {
 				Double v2 = vals.pop();
 				Double v1 = vals.pop();
 				String chunk = ("( " + n1 + " + " + n2 + " )");
+				System.out.print("Chunk ");
 				System.out.println(chunk);
 				exprs.push(chunk);
-				vals.push((v2 + v1));
+				double finalVal = (v2 + v1);
+				vals.push(finalVal);
 			} else if (s.equals("-")) {
 				String n2 = exprs.pop();
 				String n1 = exprs.pop();
 				Double v2 = vals.pop();
 				Double v1 = vals.pop();
 				String chunk = ("( " + n1 + " - " + n2 + " )");
+				System.out.print("Chunk ");
 				System.out.println(chunk);
 				exprs.push(chunk);
 				vals.push((v2 - v1));
@@ -57,6 +61,7 @@ public class PostFixToInfix {
 				Double v2 = vals.pop();
 				Double v1 = vals.pop();
 				String chunk = ("( " + n1 + " / " + n2 + " )");
+				System.out.print("Chunk ");
 				System.out.println(chunk);
 				exprs.push(chunk);
 				vals.push((v2 / v1));
@@ -66,16 +71,19 @@ public class PostFixToInfix {
 				Double v2 = vals.pop();
 				Double v1 = vals.pop();
 				String chunk = ("( " + n1 + " * " + n2 + " )");
+				System.out.print("Chunk ");
 				System.out.println(chunk);
 				exprs.push(chunk);
 				vals.push((v2 * v1));
 			}
-			String finalExp = exprs.pop();
-			Double answer = vals.pop();
-			System.out.println(finalExp);
-			System.out.println(answer);
 
 		}
+		String finalExp = exprs.pop();
+		Double answer = vals.pop();
+		System.out.print("Final Exp ");
+		System.out.println(finalExp);
+		System.out.print("Ans ");
+		System.out.println(answer);
+		}
 	}
-}
 
