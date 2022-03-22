@@ -75,13 +75,13 @@ public class QuadrantCounting extends CartesianTrials {
 			//------right edge----------
 			low = 0;
 			high = len - 1;
-			while (low >= high) {
+			while (low <= high) {
 				int mid = (low + high) / 2;
 				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
-				if (sorted >= 0) {
-					high = mid + 1;
+				if (sorted <= 0) {
+					low = mid + 1;
 				} else {
-					low = mid - 1;
+					high = mid - 1;
 				}
 			}
 
@@ -106,8 +106,6 @@ public class QuadrantCounting extends CartesianTrials {
 					}
 				}
 			int leftEdge = high + 1;
-			System.out.print("Edge: ");
-			System.out.println(leftEdge);
 			//------right edge----------
 			low = 0;
 			high = len - 1;
@@ -122,33 +120,45 @@ public class QuadrantCounting extends CartesianTrials {
 			}
 
 			int rightEdge = high;
-			System.out.print("rightEdge: ");
-			System.out.println(rightEdge);
 			int points2 = rightEdge - leftEdge + 1;
 			return points2;
 		}
 	//============Fourth Quadrant=============
-		if (q == 1) {
+
+
+		if (q == 4) {
 			Point leftmost = new Point(0, Integer.MAX_VALUE);
 			Point rightmost = new Point(Integer.MIN_VALUE, 0);
 			int low = 0;
 			int high = len - 1;
-
+			//------left edge----------
 			while (low <= high) {
 				int mid = (low + high) / 2;
 				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
-				if (sorted >= 0) {
+				if (sorted <= 0) {
 					high = mid - 1;
 				} else {
 					low = mid + 1;
 				}
 			}
-			int points = high + 1;
-			System.out.println(points);
+			int leftEdge = high;
+			//------right edge----------
+			low = 0;
+			high = len - 1;
+
+			while (low <= high) {
+				int mid = (low + high) / 2;
+				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
+				if (sorted <= 0) {
+					high = mid - 1;
+				} else {
+					low = mid + 1;
+				}
+			}
+			int rightEdge = high;
+			int points = rightEdge - leftEdge + 1;
 			return points;
 		}
-
-
 		return 9999999;
 	}
 	public static void main(String[] args) {
