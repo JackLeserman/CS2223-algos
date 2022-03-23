@@ -24,7 +24,7 @@ public class TestDoubleStack {
 		ds.pushRight(2);
 		ds.pushLeft(1);
 
-		//assertTrue(ds.isFull());               // final state
+		assertTrue(ds.isFull());               // final state
 		assertEquals(3, ds.sizeLeft());
 		assertEquals(2, ds.sizeRight());
 		

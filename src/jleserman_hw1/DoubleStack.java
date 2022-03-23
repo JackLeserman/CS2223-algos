@@ -46,8 +46,8 @@ public class DoubleStack {
 
 	/** Determines if Double Stack is full. */
 	public boolean isFull() {
-		if(sizeLeft() + sizeRight() > globalN){
-			throw new IllegalStateException("The stack is full, you idiot, lol");
+		if(sizeLeft() + sizeRight() == globalN){
+			return true;
 		}else{
 			return false;
 		}
@@ -67,6 +67,8 @@ public class DoubleStack {
 		if (!isFull()) {
 			globalStack.push(v);
 			leftNums = leftNums + 1;
+		}else{
+			throw new IllegalStateException("The stack is full, you idiot, lol");
 		}
 	}
 
@@ -82,6 +84,8 @@ public class DoubleStack {
 				globalStack.push(tempStack.pop());
 			}
 			rightNums = rightNums + 1;
+		}else{
+			throw new IllegalStateException("The stack is full, you idiot, lol");
 		}
 	}
 	
