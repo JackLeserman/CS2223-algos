@@ -27,9 +27,18 @@ public class LineProblem {
 	 * Helper method to determines whether points i,j,k are all on the same line.
 	 *
 	 * This method will be useful for both problems.
+	 * 1-2 1-3
 	 */
-	public boolean onSameLine(Point[] points, int i, int j, int k) {
-		return false; // COMPLETE ME
+	public boolean onSameLine(Point[] points, Point i, Point j, Point k) {
+		double slopeIJ = ((i.getY() - j.getY())/i.getX()-j.getX());
+		double slopeIK = ((i.getY() - k.getY())/i.getX()-k.getX());
+		System.out.println(slopeIJ);
+		System.out.println(slopeIK);
+		if(slopeIJ == slopeIK){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	/**
@@ -39,7 +48,15 @@ public class LineProblem {
 	 * or points.length to reflect all collinear.
 	 */
 	public Solution compute(Point[] points) {
-		// Complete this solution....
+		int pLen = points.length;
+		for(int i=0; i < pLen-2; i++){
+			Point pOne = points[i];
+			Point pTwo = points[i+1];
+			Point pThree = points[i+2];
+			Boolean tf = onSameLine(points, pOne, pTwo, pThree);
+
+
+		}
 		return null;
 	}
 

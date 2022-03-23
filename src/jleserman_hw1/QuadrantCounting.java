@@ -91,20 +91,54 @@ public class QuadrantCounting extends CartesianTrials {
 		}
 	//============Third Quadrant=============
 		else if (q == 3) {
-			Point leftmost = new Point(0, Integer.MAX_VALUE);
+			Point leftmost = new Point(0,Integer.MIN_VALUE);
 			Point rightmost = new Point(Integer.MIN_VALUE, 0);
 			int low = 0;
 			int high = len - 1;
 			//------left edge----------
-				while (low <= high) {
-					int mid = (low + high) / 2;
-					int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
-					if (sorted <= 0) {
-						low = mid + 1;
-					} else {
-						high = mid - 1;
-					}
+			while (low <= high) {
+				int mid = (low + high) / 2;
+				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), leftmost);
+				if (sorted <= 0) {
+					low = mid + 1;
+				} else {
+					high = mid - 1;
 				}
+			}
+			int leftEdge = high + 1;
+			//------right edge----------
+			low = 0;
+			high = len - 1;
+			while (low <= high) {
+				int mid = (low + high) / 2;
+				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
+				if (sorted <= 0) {
+					low = mid + 1;
+				} else {
+					high = mid - 1;
+				}
+			}
+			int rightEdge = high + 1;
+
+			int points2 = leftEdge - rightEdge;
+			return points2;
+		}
+	//============Fourth Quadrant=============
+		else if (q == 4) {
+			Point leftmost = new Point(Integer.MIN_VALUE, 0);
+			Point rightmost = new Point(0,Integer.MIN_VALUE);
+			int low = 0;
+			int high = len - 1;
+			//------left edge----------
+			while (low <= high) {
+				int mid = (low + high) / 2;
+				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
+				if (sorted <= 0) {
+					low = mid + 1;
+				} else {
+					high = mid - 1;
+				}
+			}
 			int leftEdge = high + 1;
 			//------right edge----------
 			low = 0;
@@ -113,51 +147,15 @@ public class QuadrantCounting extends CartesianTrials {
 				int mid = (low + high) / 2;
 				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), leftmost);
 				if (sorted >= 0) {
-					low = mid - 1;
-				} else {
 					high = mid + 1;
+				} else {
+					low = mid - 1;
 				}
 			}
 
 			int rightEdge = high;
 			int points2 = rightEdge - leftEdge + 1;
 			return points2;
-		}
-	//============Fourth Quadrant=============
-
-
-		if (q == 4) {
-			Point leftmost = new Point(0, Integer.MAX_VALUE);
-			Point rightmost = new Point(Integer.MIN_VALUE, 0);
-			int low = 0;
-			int high = len - 1;
-			//------left edge----------
-			while (low <= high) {
-				int mid = (low + high) / 2;
-				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
-				if (sorted <= 0) {
-					high = mid - 1;
-				} else {
-					low = mid + 1;
-				}
-			}
-			int leftEdge = high;
-			//------right edge----------
-			low = 0;
-			high = len - 1;
-
-			while (low <= high) {
-				int mid = (low + high) / 2;
-				int sorted = Sorting.compareCartesianByQuadrant.compare(cartesians.get(mid), rightmost);
-				if (sorted <= 0) {
-					high = mid - 1;
-				} else {
-					low = mid + 1;
-				}
-			}
-			int rightEdge = high;
-			int points = rightEdge - leftEdge + 1;
-			return points;
 		}
 		return 9999999;
 	}

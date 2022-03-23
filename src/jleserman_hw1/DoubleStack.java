@@ -20,7 +20,7 @@ import edu.princeton.cs.algs4.In;
  * 
  * The storage changes to the following:
  * 
- * [ 5, 3, 1, --, --, 2, 7]
+ * [ 5, 3, 1, --, --, 2, 7] >> [5 3 1 2 7]
  * 
  * For simplicity, only 'int' values are stored.
  * 
@@ -58,7 +58,7 @@ public class DoubleStack {
 		FixedCapacityStack<Integer> temp = new FixedCapacityStack<>(100);
 		int top = globalStack.pop();
 		globalStack.push(top);
-		while(top.)
+		//while(top.)
 
 	}
 
