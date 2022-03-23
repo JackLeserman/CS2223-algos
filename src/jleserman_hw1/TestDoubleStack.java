@@ -71,7 +71,7 @@ public class TestDoubleStack {
 		ds.pushRight(3);
 		try { ds.exchange(); fail(); } catch (IllegalStateException ise) { }
 		ds.pushLeft(7);
-		
+
 		ds.exchange();
 		
 		// These have been swapped
