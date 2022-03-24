@@ -1,4 +1,4 @@
-package jleserman_hw1;
+package jleserman.hw1;
 
 import algs.hw1.fixed.CartesianTrials;
 import algs.hw1.fixed.OrderedArray;

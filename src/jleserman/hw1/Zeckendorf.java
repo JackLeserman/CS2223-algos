@@ -1,10 +1,7 @@
-package jleserman_hw1;
+package jleserman.hw1;
 
 import algs.days.day03.FixedCapacityStack;
-import edu.princeton.cs.algs4.In;
 
-import java.util.Scanner;  // Import the Scanner class
-import java.awt.*;
 
 /**
  * Use a Stack to compute the Zeckendorf representation for a number. 

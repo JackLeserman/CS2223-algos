@@ -1,19 +1,15 @@
-package jleserman_hw1;
+package jleserman.hw1;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import algs.hw1.DoubleStack;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class TestDoubleStack {
 
 	// ensure can construct and issue sequence of commands.
 	@Test
 	public void testBasic() {
-		jleserman_hw1.DoubleStack ds = new jleserman_hw1.DoubleStack(5);
+		DoubleStack ds = new DoubleStack(5);
 		assertFalse(ds.isFull());              // initial state
 		assertEquals(0, ds.sizeLeft());
 		assertEquals(0, ds.sizeRight());
@@ -38,7 +34,7 @@ public class TestDoubleStack {
 	
 	// can't popLeft or popRight on empty DoubleStack
 	public void testErrors() {
-		jleserman_hw1.DoubleStack ds = new jleserman_hw1.DoubleStack(7);
+		DoubleStack ds = new DoubleStack(7);
 		try {
 			ds.popLeft();
 			fail();
@@ -64,7 +60,7 @@ public class TestDoubleStack {
 	// test exchange fully
 	@Test
 	public void testExchange() {
-		jleserman_hw1.DoubleStack ds = new jleserman_hw1.DoubleStack(7);
+		DoubleStack ds = new DoubleStack(7);
 		ds.pushLeft(2);
 		try { ds.exchange(); fail(); } catch (IllegalStateException ise) { }
 		ds.popLeft();

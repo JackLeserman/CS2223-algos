@@ -1,4 +1,4 @@
-package jleserman_hw1;
+package jleserman.hw1;
 
 import algs.days.day03.FixedCapacityStack;
 import edu.princeton.cs.algs4.StdIn;

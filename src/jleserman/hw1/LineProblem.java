@@ -1,12 +1,10 @@
-package jleserman_hw1;
+package jleserman.hw1;
 
-import algs.days.day03.FixedCapacityStack;
 import algs.hw1.fixed.RandomPointGenerator;
 import algs.hw1.fixed.Solution;
 import edu.princeton.cs.algs4.StopwatchCPU;
 
 import java.awt.*;
-import java.sql.SQLSyntaxErrorException;
 
 /**
  * Solves the Sylvester Line Problem: https://en.wikipedia.org/wiki/Sylvester%E2%80%93Gallai_theorem

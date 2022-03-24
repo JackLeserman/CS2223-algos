@@ -1,7 +1,6 @@
-package jleserman_hw1;
+package jleserman.hw1;
 
 import algs.days.day03.FixedCapacityStack;
-import edu.princeton.cs.algs4.In;
 
 /**
  * For this assignment, you are to complete this DoubleStack class that uses a single array to keep
