@@ -10,13 +10,13 @@ import java.util.Objects;
  * Complete this implementation that takes a postfix expression and converts it into
  * an Infix Expression using a fixed Capacity stack. Also perform the necessary 
  * computation to produce its value
- * 
+ *
  * Using the postfix expression as input
- * 
+ *
  *     3 6 + 5 * 8 2 - /
- *  
+ *
  * should produce the following as output:
- * 
+ *
  *     (((3 + 6) * 5) / (8 - 2)) = 7.5
  *
  * Note that postfix expressions do not need parentheses, which is one of their
@@ -27,9 +27,8 @@ public class PostFixToInfix {
 	public static void main(String[] args) {
 		FixedCapacityStack<String> exprs = new FixedCapacityStack<String>(100);
 		FixedCapacityStack<Double> vals = new FixedCapacityStack<Double>(100);
-
+		System.out.println("Terminate once computation is done for result");
 		while (!StdIn.isEmpty()) {
-			// Read token. push if operator.
 			String s = StdIn.readString();
 			if (!s.equals("+") && !s.equals("-") && !s.equals("/") && !s.equals("*")) {
 				vals.push(Double.parseDouble(s));
@@ -78,12 +77,6 @@ public class PostFixToInfix {
 			}
 
 		}
-		String finalExp = exprs.pop();
-		Double answer = vals.pop();
-		System.out.print("Final Exp ");
-		System.out.println(finalExp);
-		System.out.print("Ans ");
-		System.out.println(answer);
-		}
+		StdOut.print(exprs.pop() + " = " + vals.pop());
 	}
-
+}
