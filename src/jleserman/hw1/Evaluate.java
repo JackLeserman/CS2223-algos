@@ -55,7 +55,10 @@ public class Evaluate {
 			}
 		}
 		
-		StdOut.print(vals.pop());
+		StdOut.println(vals.pop());
+		
+
+
 		
 		// set a breakpoint on this line and you can observe the state
 		// of the ops stack and vals stack. You will need this for your 
