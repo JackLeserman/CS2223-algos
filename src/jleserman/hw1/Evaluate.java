@@ -56,7 +56,7 @@ public class Evaluate {
 		}
 		
 		StdOut.println(vals.pop());
-		
+
 
 
 		
