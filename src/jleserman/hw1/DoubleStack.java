@@ -2,32 +2,6 @@ package jleserman.hw1;
 
 import algs.days.day03.FixedCapacityStack;
 
-/**
- * For this assignment, you are to complete this DoubleStack class that uses a single array to keep
- * track of two independent stacks.
- * 
- * One grows from the left, upwards into the array. The other grows from the right, downwards
- * into the array.
- * 
- * For example, after creating a DoubleStack of size 7, storage looks like the following:
- * 
- * [ --, --, --, --, --, --, 7] >>
- * 
- * Now issue the following commands:
- * 
- * (a) pushLeft(5); (b) pushLeft(3); (c) pushRight(7); (d) pushRight(2); (e) pushLeft(1)
- * 
- * The storage changes to the following:
- * 
- * [ 5, 3, 1, --, --, 2, 7] >> [5 3 1 2 7]
- * 
- * For simplicity, only 'int' values are stored.
- * 
- * Any attempt to pop an empty stack (left or right) or push to a full stack must throw
- * an IllegalStateException.
- * 
- * Complete all methods and make sure that Existing TestCases pass.
- */
 public class DoubleStack {
 	
 	FixedCapacityStack<Integer> globalStack;
@@ -78,6 +52,7 @@ public class DoubleStack {
 			while (globalStack.isEmpty() == false) {
 				tempStack.push(globalStack.pop());
 			}
+			}
 			globalStack.push(v);
 			while (tempStack.isEmpty() == false) {
 				globalStack.push(tempStack.pop());
@@ -87,11 +62,7 @@ public class DoubleStack {
 			throw new IllegalStateException("The stack is full, you idiot, lol");
 		}
 	}
-	
-	/**
-	 * If left and right contain at least one value, exchange the top values found on both stacks.
-	 * If either the left or right side is empty, throw new IllegalStateException.
-	 */
+
 	public void exchange() {
 		if(leftNums > 0 && rightNums > 0){
 			FixedCapacityStack<Integer> tempStack = new FixedCapacityStack(globalN);
