@@ -47,8 +47,9 @@ public class LineProblem {
 	 * Solves a slightly different problem: Count the number of lines that pass through exactly two points.
 	 * 
 	 * This method returns the number of such lines that it finds.
+	 * DEBUG FIX: In initial release I had mistakenly made this 'static'
 	 */
-	public static int findAllJustTwo(Point[] points) {
+	public int findAllJustTwo(Point[] points) {
 		return -1;
 	}
 
