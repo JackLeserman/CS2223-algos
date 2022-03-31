@@ -20,6 +20,7 @@ public class CartesianTrials {
 	/** 
 	 * Naively search through entire structure to see which points belong to the desired quadrant. Your subclass will override with more
 	 * efficient implementation knowing that the points are sorted according to {@link Sorting#compareCartesianByQuadrant}.
+	 *
 	 */ 
 	protected int countCartesiansInQuadrant(OrderedArray<Point> points, int q) {
 		int count = 0;
