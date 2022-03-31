@@ -29,7 +29,7 @@ public class QuadrantCounting extends CartesianTrials {
 	 */
 	@Override
 	protected int countCartesiansInQuadrant(OrderedArray<Point> cartesians, int q) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
