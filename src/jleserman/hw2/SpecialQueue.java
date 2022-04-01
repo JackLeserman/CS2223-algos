@@ -1,4 +1,4 @@
-package algs.hw2;
+package jleserman.hw2;
 
 /**
  * A Queue that offers some special methods 

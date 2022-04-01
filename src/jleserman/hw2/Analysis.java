@@ -1,4 +1,4 @@
-package algs.hw2;
+package jleserman.hw2;
 
 /**
  * This is a more complicated version of a question you might see on the midterm.

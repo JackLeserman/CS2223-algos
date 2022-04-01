@@ -1,4 +1,9 @@
-package algs.hw2;
+package jleserman.hw2;
+
+import edu.princeton.cs.algs4.In;
+import org.w3c.dom.ranges.Range;
+
+import java.util.LinkedList;
 
 /**
  * A RangeList contains a compact representation of integer sequences.
@@ -11,7 +16,6 @@ package algs.hw2;
  */
 public class RangeList {
 
-	/** Linked list node to use. */
 	class Node {
 		int low;
 		int high;
@@ -26,21 +30,27 @@ public class RangeList {
 			this.low = lo;
 			this.high = hi;
 			this.next = next;
+			}
 		}
+
+		Node head = null;
+	public RangeList() {
+
 	}
 
-	Node head = null;
-
-	public RangeList() { }
-	
-	/** 
-	 * Return the number of distinct ranges in the RangeList.
-	 * Performance must be O(N) 
-	 */
 	public int numberRanges() {
 		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
 	}
-	
+
+	public void print(String str) {
+		/*I made this because i am a simp for python and always
+		use print() in java for stuff and this will make my life
+		easier pls dont judge me grader :(
+		 */
+		System.out.println(str);
+	}
+
+
 	/** 
 	 * Return the number of distinct values in the RangeList.
 	 * Performance must be O(1) 
@@ -87,7 +97,44 @@ public class RangeList {
 	 * Performance must be O(N)
 	 */
 	public boolean add(int value) {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		Node checkMe = head;
+		System.out.println(head.low);
+		//While the primed node is NOT the last one
+		while(checkMe.next != null) {
+
+			System.out.println("bungus");
+
+			//check if the value exists
+			if(checkMe.low < value && checkMe.high > value) {
+				System.out.println("ALREADY EXISTS");
+				return false;
+			}
+
+			//check if the value is between this node and the next one
+			if(checkMe.high < value && checkMe.next.low > value){
+				Node plusOne = checkMe.next;
+				Node addNode = new Node(value, value, plusOne);
+				checkMe.next = addNode;
+				return true;
+			}
+
+			//primes the next node
+			checkMe = checkMe.next;
+		}
+
+		//edge case if checkMe is the node of concern
+		if(checkMe.low < value && checkMe.high > value) {
+			System.out.println("ALREADY EXISTS");
+			return false;
+		}
+
+		if(checkMe.high < value && checkMe.next.low > value){
+			Node plusOne = checkMe.next;
+			Node addNode = new Node(value, value, plusOne);
+			checkMe.next = addNode;
+			return true;
+		}
+		throw new RuntimeException("Something went terribly wrong and you should cry");
 	}
 
 	/**
@@ -96,6 +143,8 @@ public class RangeList {
 	 * This method must guarantee the GAP property and the ASCENDING property of RangeList
 	 * Performance must be O(N)
 	 */
+
+
 	public boolean remove(int value) {
 		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
 	}
@@ -104,6 +153,8 @@ public class RangeList {
 	 * Produce string representation of ranges, in order from least to greatest.
 	 * Performance must be O(N) 
 	 */
+
+
 	public String toString() {
 		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");	}
 
