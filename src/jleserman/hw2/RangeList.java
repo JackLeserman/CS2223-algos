@@ -1,5 +1,6 @@
 package jleserman.hw2;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import edu.princeton.cs.algs4.In;
 import org.w3c.dom.ranges.Range;
 
@@ -38,25 +39,50 @@ public class RangeList {
 
 	}
 
+	/**
+	 * Return the number of distinct ranges in the RangeList.
+	 * Performance must be O(N)
+	 */
 	public int numberRanges() {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		Node checkMe = head;
+		int counter = 0;
+		while(checkMe.next != null) {
+			counter = counter + 1;
+			checkMe = checkMe.next;
+		}
+		counter = counter + 1;
+		return counter;
 	}
-
-	public void print(String str) {
-		/*I made this because i am a simp for python and always
-		use print() in java for stuff and this will make my life
-		easier pls dont judge me grader :(
-		 */
-		System.out.println(str);
-	}
-
 
 	/** 
 	 * Return the number of distinct values in the RangeList.
 	 * Performance must be O(1) 
 	 */
 	public int numberValues() {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		Node checkMe = head;
+		int counter = 0;
+		while (checkMe.next != null) {
+			int high = checkMe.high;
+			int low = checkMe.low;
+			if (high == low) {
+				counter = counter + 1;
+			} else {
+				for (int i = low; i < high; i++) {
+					counter = counter + 1;
+				}
+			}
+			checkMe = checkMe.next;
+		}
+		int high = checkMe.high;
+		int low = checkMe.low;
+		if (high == low) {
+			counter = counter + 1;
+		} else {
+			for (int i = low; i < high; i++) {
+				counter = counter + 1;
+			}
+		}
+		return counter;
 	}
 	
 	/**
@@ -70,7 +96,67 @@ public class RangeList {
 	 * If you have a solution that provides O(N) performance you get +10 points
 	 */
 	public boolean subsetOf(RangeList rl) {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		LinkedList<Integer> curr = new LinkedList();
+		LinkedList<Integer> master = new LinkedList();
+		Node checkMeCurr = head;
+		Node checkMeMaster = rl.head;
+
+		while(checkMeCurr.next != null){
+			int high = checkMeCurr.high;
+			int low = checkMeCurr.low;
+			if(high==low){
+				curr.add(high);
+			}else {
+				for (int i = low; i < high; i++) {
+					curr.add(i);
+				}
+			}
+			checkMeCurr = checkMeCurr.next;
+		}
+		int high = checkMeCurr.high;
+		int low = checkMeCurr.low;
+
+		if(high==low){
+			curr.add(high);
+		}else {
+			for (int i = low; i < high; i++) {
+				curr.add(i);
+			}
+		}
+
+		while(checkMeMaster.next != null){
+			int high2 = checkMeMaster.high;
+			int low2 = checkMeMaster.low;
+			if(high2==low2){
+				master.add(high2);
+			}else {
+				for (int i = low2; i < high2; i++) {
+					master.add(i);
+				}
+			}
+			checkMeMaster = checkMeMaster.next;
+		}
+
+		int high2 = checkMeMaster.high;
+		int low2 = checkMeMaster.low;
+
+		if(high2==low2){
+			master.add(high2);
+		}else {
+			for (int i = low2; i < high2; i++) {
+				master.add(i);
+			}
+		}
+
+		int listLen = curr.size();
+
+		for(int i=0; i<listLen; i++){
+			int num = curr.get(i);
+			if(!master.contains(num)){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/**
@@ -78,7 +164,73 @@ public class RangeList {
 	 * Performance: O(N)
 	 */
 	public boolean equals(Object o) {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		RangeList oList = (RangeList) o;
+		LinkedList<Integer> curr = new LinkedList();
+		LinkedList<Integer> master = new LinkedList();
+		Node checkMeCurr = head;
+		Node checkMeMaster = oList.head;
+
+		while(checkMeCurr.next != null){
+			int high = checkMeCurr.high;
+			int low = checkMeCurr.low;
+			if(high==low){
+				curr.add(high);
+			}else {
+				for (int i = low; i < high; i++) {
+					curr.add(i);
+				}
+			}
+			checkMeCurr = checkMeCurr.next;
+		}
+		int high = checkMeCurr.high;
+		int low = checkMeCurr.low;
+
+		if(high==low){
+			curr.add(high);
+		}else {
+			for (int i = low; i < high; i++) {
+				curr.add(i);
+			}
+		}
+
+		while(checkMeMaster.next != null){
+			int high2 = checkMeMaster.high;
+			int low2 = checkMeMaster.low;
+			if(high2==low2){
+				master.add(high2);
+			}else {
+				for (int i = low2; i < high2; i++) {
+					master.add(i);
+				}
+			}
+			checkMeMaster = checkMeMaster.next;
+		}
+
+		int high2 = checkMeMaster.high;
+		int low2 = checkMeMaster.low;
+
+		if(high2==low2){
+			master.add(high2);
+		}else {
+			for (int i = low2; i < high2; i++) {
+				master.add(i);
+			}
+		}
+
+		int listLen = curr.size();
+
+		if(listLen != master.size()){
+			return false;
+		}
+
+		for(int i=0; i<listLen; i++){
+			int numCurr = curr.get(i);
+			int numMaster = master.get(i);
+			if(numCurr != numMaster){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	
@@ -87,7 +239,37 @@ public class RangeList {
 	 * Performance must be O(N)
 	 */
 	public boolean contains(int value) {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		Node checkMe = head;
+		while(checkMe.next != null) {
+			int high = checkMe.high;
+			int low = checkMe.low;
+			if (high == low) {
+				if (low == value) {
+					return true;
+				}
+			} else {
+				for (int i = low; i < high; i++) {
+					if (i == value) {
+						return true;
+					}
+				}
+			}
+			checkMe = checkMe.next;
+		}
+		int high = checkMe.high;
+		int low = checkMe.low;
+		if(high==low){
+			if(low==value){
+				return true;
+			}
+		}else {
+			for (int i = low; i < high; i++) {
+				if (i == value) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -98,12 +280,14 @@ public class RangeList {
 	 */
 	public boolean add(int value) {
 		Node checkMe = head;
-		System.out.println(head.low);
-		//While the primed node is NOT the last one
+		//TODO add case where 2 is added to 345
+		//for case where list is empty
+		if(checkMe == null){
+			head = new Node(value, value, null);
+			return true;
+		}
+
 		while(checkMe.next != null) {
-
-			System.out.println("bungus");
-
 			//check if the value exists
 			if(checkMe.low < value && checkMe.high > value) {
 				System.out.println("ALREADY EXISTS");
@@ -118,20 +302,35 @@ public class RangeList {
 				return true;
 			}
 
+			if(checkMe.low > value && checkMe.high > value){
+				Node addNode = new Node(value, value, checkMe);
+				head = addNode;
+				return true;
+			}
 			//primes the next node
 			checkMe = checkMe.next;
 		}
 
 		//edge case if checkMe is the node of concern
+		//checks if value is between low and high of tail
 		if(checkMe.low < value && checkMe.high > value) {
 			System.out.println("ALREADY EXISTS");
 			return false;
 		}
 
-		if(checkMe.high < value && checkMe.next.low > value){
-			Node plusOne = checkMe.next;
-			Node addNode = new Node(value, value, plusOne);
+		//if the node we want to add is going to go at the end,
+		//where there is no "next" set the next to null
+		//searches for next as null
+		if(checkMe.high < value && checkMe.next == null){
+			Node addNode = new Node(value, value, null);
 			checkMe.next = addNode;
+			return true;
+		}
+
+		//handles case where we add BEFORE a node
+		if(checkMe.low > value && checkMe.high > value){
+			Node addNode = new Node(value, value, checkMe);
+			head = addNode;
 			return true;
 		}
 		throw new RuntimeException("Something went terribly wrong and you should cry");
@@ -144,9 +343,61 @@ public class RangeList {
 	 * Performance must be O(N)
 	 */
 
-
 	public boolean remove(int value) {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");
+		Node checkMe = head;
+		Node checkMePrev = null; //EDGE
+		if (checkMe == null) {
+			return false;
+		}
+		while (checkMe.next != null) {
+			int high = checkMe.high;
+			int low = checkMe.low;
+			if(low < value && value < high){
+				if(checkMePrev == null ){
+					Node upper = new Node(value+1, high, head);
+					Node lower = new Node(low, value-1, upper);
+					head = lower;
+					return true;
+				}
+				Node upper = new Node(value+1, high, checkMe);
+				Node lower = new Node(low, value-1, upper);
+				checkMePrev.next=lower;
+				return true;
+			}
+			if(low == high) {
+				if (low == value) {
+					if(checkMePrev == null){
+						head = checkMe.next;
+						return true;
+					}
+					checkMePrev.next = checkMe.next;
+					return true;
+				}
+			}
+			checkMePrev = checkMe;
+			checkMe = checkMe.next;
+		}
+		int high = checkMe.high;
+		int low = checkMe.low;
+		if(checkMePrev == null ){
+			Node upper = new Node(value+1, high, head);
+			Node lower = new Node(low, value-1, upper);
+			head = lower;
+			return true;
+		}
+		if(low < value && value < high){
+			Node upper = new Node(value+1, high, checkMe);
+			Node lower = new Node(low, value-1, upper);
+			checkMePrev.next=lower;
+			return true;
+		}
+		if(low == high) {
+			if (low == value) {
+				checkMePrev.next = null;
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/** 
@@ -156,7 +407,36 @@ public class RangeList {
 
 
 	public String toString() {
-		throw new RuntimeException ("FINISH THIS IMPLEMENTATION");	}
+		Node checkMe = head;
+		String str = "";
+
+		while(checkMe.next != null){
+			int high = checkMe.high;
+			int low = checkMe.low;
+			if(high == low){
+				String intStr = Integer.toString(low);
+				str = str + intStr + ",";
+			}else{
+				for (int i = low; i < high; i++) {
+					String intStr = Integer.toString(low);
+					str = str + intStr + ",";
+				}
+			}
+			checkMe = checkMe.next;
+		}
+		int high = checkMe.high;
+		int low = checkMe.low;
+		if(high == low){
+			String intStr = Integer.toString(low);
+			str = str + intStr;
+		}else {
+			for (int i = low; i < high; i++) {
+				String intStr = Integer.toString(low);
+				str = str + intStr;
+			}
+		}
+		return str;
+	}
 
 	// BONUS QUESTIONS
 	// --------------------------------------------------
