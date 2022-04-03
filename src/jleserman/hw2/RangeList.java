@@ -283,6 +283,7 @@ public class RangeList {
 	 */
 	public boolean add(int value) {
 		Node checkMe = head;
+		Node prevCheckMe = null;
 		//TODO add case where 2 is added to 345
 		//for case where list is empty
 		if(checkMe == null){
@@ -301,6 +302,11 @@ public class RangeList {
 			if(checkMe.high < value && checkMe.next.low > value){
 				Node plusOne = checkMe.next;
 
+				if(checkMe.high == value - 1 && checkMe.next.low == value + 1){ //TODO add something like prevCheckMe, might be fucking up majorly
+					checkMe.high = checkMe.next.high;
+					checkMe.next = checkMe.next.next;
+					return true;
+				}
 				if(checkMe.high == value - 1){
 					checkMe.high = value;
 					return true;
@@ -392,14 +398,23 @@ public class RangeList {
 		while (checkMe.next != null) {
 			int high = checkMe.high;
 			int low = checkMe.low;
+			if(value <= checkMe.low){
+				if(checkMe==head){
+					if(checkMe.low == checkMe.high){
+						head = checkMe.next;
+					}else {
+						checkMe.low = checkMe.low + 1;
+					}
+				}
+			}
 			if(low < value && value < high){
 				if(checkMePrev == null ){
-					Node upper = new Node(value+1, high, head);
+					Node upper = new Node(value+1, high, checkMe.next);
 					Node lower = new Node(low, value-1, upper);
 					head = lower;
 					return true;
 				}
-				Node upper = new Node(value+1, high, checkMe);
+				Node upper = new Node(value+1, high, checkMe.next);
 				Node lower = new Node(low, value-1, upper);
 				checkMePrev.next=lower;
 				return true;
@@ -417,16 +432,25 @@ public class RangeList {
 			checkMePrev = checkMe;
 			checkMe = checkMe.next;
 		}
+		if(checkMe == head){
+			if(value < checkMe.low){
+				if(checkMe.low - 1 == value){
+					checkMe.low = value;
+				}else {
+					Node newHead = new Node(value, value, checkMe);
+				}
+			}
+		}
 		int high = checkMe.high;
 		int low = checkMe.low;
 		if(checkMePrev == null ){
-			Node upper = new Node(value+1, high, head);
+			Node upper = new Node(value+1, high, checkMe.next);
 			Node lower = new Node(low, value-1, upper);
 			head = lower;
 			return true;
 		}
 		if(low < value && value < high){
-			Node upper = new Node(value+1, high, checkMe);
+			Node upper = new Node(value+1, high, checkMe.next);
 			Node lower = new Node(low, value-1, upper);
 			checkMePrev.next=lower;
 			return true;

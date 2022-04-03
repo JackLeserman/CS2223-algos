@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/PartialValidationRangeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/PartialValidationRangeList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/RangeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/RangeList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" afterDir="false" />
@@ -44,7 +45,7 @@
       <recent name="jleserman.hw2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PartialValidationRangeList">
+  <component name="RunManager" selected="Application.PerformanceRangeList (1)">
     <configuration name="Analysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jleserman.hw2.Analysis" />
       <module name="CS2223-algos" />
@@ -111,9 +112,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PerformanceRangeList (1)" />
         <item itemvalue="Application.PartialValidationRangeList" />
         <item itemvalue="Application.Analysis" />
-        <item itemvalue="Application.PerformanceRangeList (1)" />
         <item itemvalue="Application.PerformanceRangeList (2)" />
         <item itemvalue="Application.PerformanceSpecialQueue" />
       </list>

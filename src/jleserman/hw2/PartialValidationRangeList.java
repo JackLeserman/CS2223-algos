@@ -54,12 +54,33 @@ public class PartialValidationRangeList {
 		rlA.add(3);
 		rlA.add(4);
 		rlA.add(5);
-		Object p = rlA.toString();
-		System.out.println("Must be 1-5: " + p);
+		rlA.add(6);
+		rlA.add(7);
+		rlA.add(8);
 		rlA.add(9);
+		Object p = rlA.toString();
+		System.out.println("Must be 1-9: " + p);
+		rlA.add(10);
 		Object q = rlA.toString();
-		System.out.println("Must be 1-5,9 : " + q);
-
+		System.out.println("Must be 1-9,10 : " + q);
+		rlA.remove(3);
+		Object g = rlA.toString();
+		System.out.println("Must be 1-2, 4-9, 10 : " + g);
+		rlA.remove(7);
+		Object b = rlA.toString();
+		System.out.println("Must be 1-2, 4-8, 8-10 : " + b);
+		rlA.add(3);
+		Object t = rlA.toString();
+		System.out.println(t);
+		rlA.add(11);
+		Object tt = rlA.toString();
+		System.out.println(tt);
+		rlA.remove(1);
+		Object tttt = rlA.toString();
+		System.out.println(tttt);
+		rlA.add(1);
+		Object ttt = rlA.toString();
+		System.out.println(ttt);
 
 	}
 }
