@@ -46,6 +46,9 @@ public class RangeList {
 	public int numberRanges() {
 		Node checkMe = head;
 		int counter = 0;
+		if(checkMe.next == null){
+			counter = counter + 1;
+		}
 		while(checkMe.next != null) {
 			counter = counter + 1;
 			checkMe = checkMe.next;
@@ -297,12 +300,31 @@ public class RangeList {
 			//check if the value is between this node and the next one
 			if(checkMe.high < value && checkMe.next.low > value){
 				Node plusOne = checkMe.next;
+
+				if(checkMe.high == value - 1){
+					checkMe.high = value;
+					return true;
+				}
+				if(checkMe.low == value + 1){
+					checkMe.low = value;
+					return true;
+				}
+
 				Node addNode = new Node(value, value, plusOne);
 				checkMe.next = addNode;
 				return true;
 			}
 
 			if(checkMe.low > value && checkMe.high > value){
+				if(checkMe.high == value - 1){
+					checkMe.high = value;
+					return true;
+				}
+				if(checkMe.low == value + 1){
+					checkMe.low = value;
+					return true;
+				}
+
 				Node addNode = new Node(value, value, checkMe);
 				head = addNode;
 				return true;
@@ -322,6 +344,15 @@ public class RangeList {
 		//where there is no "next" set the next to null
 		//searches for next as null
 		if(checkMe.high < value && checkMe.next == null){
+			if(checkMe.high == value - 1){
+				checkMe.high = value;
+				return true;
+			}
+			if(checkMe.low == value + 1){
+				checkMe.low = value;
+				return true;
+			}
+
 			Node addNode = new Node(value, value, null);
 			checkMe.next = addNode;
 			return true;
@@ -329,6 +360,15 @@ public class RangeList {
 
 		//handles case where we add BEFORE a node
 		if(checkMe.low > value && checkMe.high > value){
+			if(checkMe.high == value - 1){
+				checkMe.high = value;
+				return true;
+			}
+			if(checkMe.low == value + 1){
+				checkMe.low = value;
+				return true;
+			}
+
 			Node addNode = new Node(value, value, checkMe);
 			head = addNode;
 			return true;
@@ -417,10 +457,8 @@ public class RangeList {
 				String intStr = Integer.toString(low);
 				str = str + intStr + ",";
 			}else{
-				for (int i = low; i < high; i++) {
-					String intStr = Integer.toString(low);
-					str = str + intStr + ",";
-				}
+				String intStr = Integer.toString(low) + "-" + Integer.toString(high);
+				str = str + intStr + ",";
 			}
 			checkMe = checkMe.next;
 		}
@@ -430,10 +468,8 @@ public class RangeList {
 			String intStr = Integer.toString(low);
 			str = str + intStr;
 		}else {
-			for (int i = low; i < high; i++) {
-				String intStr = Integer.toString(low);
-				str = str + intStr;
-			}
+			String intStr = Integer.toString(low) + "-" + Integer.toString(high);
+			str = str + intStr + ",";
 		}
 		return str;
 	}

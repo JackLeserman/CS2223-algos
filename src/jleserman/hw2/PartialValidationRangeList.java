@@ -10,7 +10,6 @@ package jleserman.hw2;
  */
 public class PartialValidationRangeList {
 	public static void main(String[] args) {
-		// create your RangeList rl
 		jleserman.hw2.RangeList rl = new jleserman.hw2.RangeList();
 
 		rl.add(11);
@@ -48,6 +47,19 @@ public class PartialValidationRangeList {
 		rl2.remove(3);
 		rl2.remove(7);
 		System.out.println("Must be true: " + rl.equals(rl2));
+
+		jleserman.hw2.RangeList rlA = new RangeList();
+		rlA.add(1);
+		rlA.add(2);
+		rlA.add(3);
+		rlA.add(4);
+		rlA.add(5);
+		Object p = rlA.toString();
+		System.out.println("Must be 1-5: " + p);
+		rlA.add(9);
+		Object q = rlA.toString();
+		System.out.println("Must be 1-5,9 : " + q);
+
 
 	}
 }
