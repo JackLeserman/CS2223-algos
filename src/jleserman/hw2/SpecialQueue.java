@@ -39,7 +39,7 @@ public class SpecialQueue {
 	 */
 	public int dequeue() {
 		Node node = head;
-		node.next = head;
+		head = node.next;
 		return node.value;
 	}
 	
@@ -93,10 +93,8 @@ public class SpecialQueue {
 	 */
 	public boolean isEmpty() {
 		if(head == null && tail == null){
-			if(head.next == null){
-				return true;
+			return true;
 			}
-		}
 		return false;
 	}
 	
@@ -134,9 +132,11 @@ public class SpecialQueue {
 		if(tailb4 == null){
 			return;
 		}
-		tailb4.next = head;
-		head = tail;
+		tail = head;
+		head = tailb4.next;
+		tail.next = null;
 		head.next = headNext;
+		tailb4.next = tail;
 		return;
 	}
 

@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/PartialValidationRangeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/PartialValidationRangeList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/RangeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/RangeList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/Analysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,16 +148,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="55" />
