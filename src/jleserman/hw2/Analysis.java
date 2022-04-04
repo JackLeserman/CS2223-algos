@@ -103,7 +103,10 @@ public class Analysis {
 		for (int n = 2; n <= 16384; n *= 2) {
 			
 			int[] a = new int[n];
-			for (int i = 0; i < n; i++) { a[i] = i; }
+			for (int i = 0; i < n; i++) {
+				a[i] = i;
+				counter = 0;
+			}
 
 			// initiate the request on an array of size n, containing values from 0 to n-1
 			// using indices of lo=0 and hi=n-1

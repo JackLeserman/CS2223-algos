@@ -1,0 +1,28 @@
+Homework 2
+Jack Leserman
+=============================
+
+------------------1-------------------
+
+1.1)
+
+    base case:
+
+    if (lo == hi) {
+        return v + power(A[hi],2);
+    }
+
+    recursive case:
+
+    int m = (lo + hi) / 2;
+
+1.2)
+    When S(N) = 2 >>>>> 6
+
+
+
+
+
+
+
+

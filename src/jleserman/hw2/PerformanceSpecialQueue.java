@@ -1,4 +1,5 @@
 package jleserman.hw2;
+
 import edu.princeton.cs.algs4.StopwatchCPU;
 
 public class PerformanceSpecialQueue {
@@ -21,18 +22,17 @@ public class PerformanceSpecialQueue {
 			double timeLargest = watch.elapsedTime();
 
 			// this code is so blazing fast (at O(1)) that I have to
-			// run it 10,000,000 times to be able to get the timer
+			// run it 10,000,000 times to be able to get the timer 
 			// to detect time (since precision is 15.625ms threshold)
 			// you should be able to determine that timing is independent
 			// of N.
 			watch = new StopwatchCPU();
-			for (int i = 0; i < 10000000; i++) {
-				sq.swapEndPoints();
-			}
+			//for (int i = 0; i < 10000000; i++) {
+			//	sq.swapEndPoints();					//todo
+			//}
 			double timeSwap = watch.elapsedTime();
 
 			System.out.println(String.format("%d\t%.6f\t%.6f", N, timeLargest, timeSwap));
 		}
 	}
 }
-
