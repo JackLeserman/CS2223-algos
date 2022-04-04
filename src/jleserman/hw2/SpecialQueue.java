@@ -94,6 +94,10 @@ public class SpecialQueue {
 			largestInt = largest;
 			previousNodeLargest = previousNode;
 		}
+		if(largestNode.next == null) {
+			tail = b4tail; //TODO maybe wrong in terms of updating b4
+			return largestInt;
+		}
 
 		if(previousNodeLargest == null){
 			b4tail = null;
@@ -163,6 +167,9 @@ public class SpecialQueue {
 			}
 			Node headNext = head.next;
 			tail = head;
+			if(b4tail == null){
+				return;
+			}
 			head = b4tail.next;
 			tail.next = null;
 			head.next = headNext;

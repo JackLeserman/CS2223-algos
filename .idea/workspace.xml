@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" afterDir="false" />
     </list>
@@ -52,7 +51,7 @@
       <recent name="jleserman.hw2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.testSpecialQueue">
+  <component name="RunManager" selected="Application.PerformanceSpecialQueue">
     <configuration name="Analysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jleserman.hw2.Analysis" />
       <module name="CS2223-algos" />
@@ -120,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.testSpecialQueue" />
         <item itemvalue="Application.PerformanceSpecialQueue" />
+        <item itemvalue="Application.testSpecialQueue" />
         <item itemvalue="Application.PerformanceSpecialQueue (1)" />
         <item itemvalue="Application.PerformanceRangeList (1)" />
         <item itemvalue="Application.Analysis" />
@@ -155,6 +154,15 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="jleserman.hw2.RangeList$Node" memberName="low" />
