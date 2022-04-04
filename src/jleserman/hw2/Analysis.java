@@ -52,10 +52,12 @@ public class Analysis {
 	/** 
 	 * Helper method to compute base^exp as a long.
 	 */
+	static int counter;
+
 	static long power(int base, int exp) {
+		counter = counter + 1;
 		return (long) Math.pow(base, exp);
 	}
-	
 	/**
 	 * This is the method under review. Do not change this method.
 	 */
@@ -108,7 +110,7 @@ public class Analysis {
 			long val = proc(a, 0, n-1);
 			
 			// WILL NEED TO FIX BELOW
-			System.out.println(String.format("%6d\t%14d\t%8d\t%8d", n, val, 0, model(n)));
+			System.out.println(String.format("%6d\t%14d\t%8d\t%8d", n, val, counter, model(n)));
 		}
 	}
 }

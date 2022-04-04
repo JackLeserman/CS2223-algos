@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/PartialValidationRangeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/PartialValidationRangeList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/RangeList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/RangeList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/Analysis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,7 @@
       <recent name="jleserman.hw2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PerformanceRangeList (1)">
+  <component name="RunManager" selected="Application.testSpecialQueue">
     <configuration name="Analysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jleserman.hw2.Analysis" />
       <module name="CS2223-algos" />
@@ -85,18 +88,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PerformanceRangeList (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.PerformanceRangeList" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jleserman.hw2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PerformanceSpecialQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jleserman.hw2.PerformanceSpecialQueue" />
       <module name="CS2223-algos" />
@@ -110,13 +101,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testSpecialQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.testSpecialQueue" />
+      <module name="CS2223-algos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jleserman.hw2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PerformanceRangeList (1)" />
-        <item itemvalue="Application.PartialValidationRangeList" />
-        <item itemvalue="Application.Analysis" />
-        <item itemvalue="Application.PerformanceRangeList (2)" />
+        <item itemvalue="Application.testSpecialQueue" />
         <item itemvalue="Application.PerformanceSpecialQueue" />
+        <item itemvalue="Application.PerformanceRangeList (1)" />
+        <item itemvalue="Application.Analysis" />
+        <item itemvalue="Application.PartialValidationRangeList" />
       </list>
     </recent_temporary>
   </component>
@@ -147,6 +151,24 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="55" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="jleserman.hw2.RangeList$Node" memberName="low" />

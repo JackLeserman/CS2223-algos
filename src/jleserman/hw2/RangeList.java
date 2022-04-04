@@ -70,7 +70,7 @@ public class RangeList {
 			if (high == low) {
 				counter = counter + 1;
 			} else {
-				for (int i = low; i < high; i++) {
+				for (int i = low; i <= high; i++) {
 					counter = counter + 1;
 				}
 			}
@@ -81,7 +81,7 @@ public class RangeList {
 		if (high == low) {
 			counter = counter + 1;
 		} else {
-			for (int i = low; i < high; i++) {
+			for (int i = low; i <= high; i++) {
 				counter = counter + 1;
 			}
 		}

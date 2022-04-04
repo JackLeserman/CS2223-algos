@@ -81,6 +81,9 @@ public class PartialValidationRangeList {
 		rlA.add(1);
 		Object ttt = rlA.toString();
 		System.out.println(ttt);
+		System.out.println("Must be 2: " + rlA.numberRanges());
+		Object o =  rlA.numberValues();
+		System.out.println("Must be 10: " + o);
 
 	}
 }
