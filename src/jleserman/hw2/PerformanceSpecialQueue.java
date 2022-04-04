@@ -27,9 +27,9 @@ public class PerformanceSpecialQueue {
 			// you should be able to determine that timing is independent
 			// of N.
 			watch = new StopwatchCPU();
-			//for (int i = 0; i < 10000000; i++) {
-			//	sq.swapEndPoints();					//todo
-			//}
+			for (int i = 0; i < 10000000; i++) {
+				sq.swapEndPoints();
+			}
 			double timeSwap = watch.elapsedTime();
 
 			System.out.println(String.format("%d\t%.6f\t%.6f", N, timeLargest, timeSwap));

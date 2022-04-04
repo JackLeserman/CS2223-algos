@@ -76,13 +76,21 @@ public class Analysis {
 		
 		return total;
 	}
-	
+
+	static long log2(int n){
+		double y = Math.log(n)/Math.log(2);
+		long x = (new Double(y)).longValue();
+		return x;
+	}
+
 	/**
 	 * Complete your analysis of the code and modify this function to return the prediction
 	 * of how many times Math.power() is called for an initial problem of size n.
 	 */
 	static long model(int n) {
-		return 0;   // FILL IN YOUR MODEL FORMULA
+		double b = Math.pow(2, log2(n)+1) + Math.pow(2, log2(n)) + log2(n)*(n/2)-1;
+		long x = (new Double(b)).longValue();
+		return x;
 	}
 	
 	/**

@@ -11,25 +11,30 @@ public class SpecialQueue {
 	class Node {
 		final int value;
 		Node next;
-
+		Node prev;
 		Node (int val) {
 			this.value = val;
 		}
 	}
-	Node head = null;
-	Node tail = null;
+	Node head = null; //first
+	Node tail = null; //last
+	Node b4tail; //second to last
+	int size = 0;
+
 	/** 
 	 * Enqueue val at end of the queue.
 	 * Performance must be O(1) 
 	 */
-	public void enqueue(int val) {
+	public void enqueue(int val) { //
+		size++;
 		Node node = new Node(val);
-		node.next = head;
-		if(tail == null && head == null) {
-			tail = node;
-			head = node;
-		}else{
-			head = node;
+		if(tail==null){ //If this is the FIRST
+			head = tail = node;
+			tail.prev = null;
+		}else {
+			tail.next = node;
+			b4tail = tail;
+			tail = node; //
 		}
 	}
 	
@@ -40,6 +45,12 @@ public class SpecialQueue {
 	public int dequeue() {
 		Node node = head;
 		head = node.next;
+		if(node == tail){
+			b4tail = null;
+		}
+		if(node == b4tail){
+			b4tail = null;
+		}
 		return node.value;
 	}
 	
@@ -54,6 +65,29 @@ public class SpecialQueue {
 	 * Performance is O(N) where N is the number of values in the queue.
 	 */
 	public int dequeueLargest() {
+		Node checkMe;
+		Node largestNode;
+		Node oneBeforeLargest;
+		Node twoBeforeLargest;
+		int largestInt = 0;
+
+		if (isEmpty()) {
+			throw new RuntimeException("Queue Empty");
+		}
+
+		while (checkMe.next != null) {
+			int largest = checkMe.value;
+			if (largest > largestInt) {
+				largestNode = checkMe;
+				largestInt = largest;
+			}
+		}
+
+
+
+	return largestInt;
+	}
+	public int dequeueLargestOLD() {
 		int largestInt = Integer.MIN_VALUE;
 		Node largestNode = null;
 		Node previousNode = null;
@@ -84,6 +118,14 @@ public class SpecialQueue {
 		}else{
 			previousNodeLargest.next = largestNode.next;
 		}
+
+		if(largestNode == b4tail){
+
+		}
+		if(previousNodeLargest == b4tail){
+
+		}
+
 		return largestInt;
 	}
 	
@@ -122,35 +164,31 @@ public class SpecialQueue {
 	 * If you can implement this method in O(1) time, +4 points
 	 */
 	public void swapEndPoints() {
-		int size = size();
-		if(size <= 1){
+		if (head == tail) {
 			return;
 		}
-		if(size == 2){
+		if (head == null) {
+			return;
+		}
+
+		if(b4tail == head){
 			Node newTail = head;
-			Node newHead = tail;
-			head = newHead;
+			head = tail;
+			head.next = newTail;
 			tail = newTail;
-			head.next = tail;
 			tail.next = null;
+			return;
 
 		}
-		Node headNext = head.next;
-		Node tailb4 = null; //todo add global
-		Node checkMe = head;
-		while(checkMe != tail) {
-			tailb4 = checkMe;
-			checkMe = checkMe.next;
-		}
-		if(tailb4 == null){
-			return;
-		}
-		tail = head;
-		head = tailb4.next;
+
+		Node newTail = head;
+		head = tail;
+		head.next = newTail.next;
+		b4tail.next = newTail;
+		tail = newTail;
 		tail.next = null;
-		head.next = headNext;
-		tailb4.next = tail;
-		return;
+
+
 	}
 
 	public void printQueue() {
