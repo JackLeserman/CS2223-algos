@@ -18,6 +18,7 @@ public class SpecialQueue {
 	}
 	Node head = null;
 	Node tail = null;
+	Node b4tail = null;
 	/** 
 	 * Enqueue val at end of the queue.
 	 * Performance must be O(1) 
@@ -31,6 +32,9 @@ public class SpecialQueue {
 		}else{
 			head = node;
 		}
+		if(node.next == tail){
+			b4tail = node;
+		}
 	}
 	
 	/** 
@@ -40,9 +44,21 @@ public class SpecialQueue {
 	public int dequeue() {
 		Node node = head;
 		head = node.next;
+		if(head == null){
+			b4tail = null;
+		}
 		return node.value;
 	}
-	
+
+	/**
+	 * A helper method that updates the node before tail, used in
+	 * dequeue largest
+	 */
+
+	public void checkb4(){
+
+	}
+
 	/**
 	 * Remove from the queue and return the largest value contained.
 	 * 
@@ -78,10 +94,16 @@ public class SpecialQueue {
 			largestInt = largest;
 			previousNodeLargest = previousNode;
 		}
+
 		if(previousNodeLargest == null){
+			b4tail = null;
 			head = largestNode.next;
 			return largestInt;
 		}else{
+			if(largestNode == b4tail){
+				b4tail = previousNodeLargest;
+				System.out.println("CUM");
+			}
 			previousNodeLargest.next = largestNode.next;
 		}
 		return largestInt;
@@ -105,7 +127,7 @@ public class SpecialQueue {
 	public int size() {
 		Node checkMe = head;
 		int counter = 0;
-		while(checkMe != tail) {
+		while(checkMe.next != null) {
 			counter = counter + 1;
 			checkMe = checkMe.next;
 		}
@@ -122,27 +144,41 @@ public class SpecialQueue {
 	 * If you can implement this method in O(1) time, +4 points
 	 */
 	public void swapEndPoints() {
-		Node headNext = head.next;
-		Node tailb4 = null; //todo add global
-		Node checkMe = head;
-		while(checkMe != tail) {
-			tailb4 = checkMe;
-			checkMe = checkMe.next;
-		}
-		if(tailb4 == null){
+		int sizeQ = size();
+		if(sizeQ > 1) {
+			if(sizeQ == 2){
+				Node tail2 = tail;
+				Node head2 = head;
+				tail = head2;
+				head = tail2;
+				head.next = tail;
+				tail.next = null;
+				System.out.println(head.value);
+				System.out.println(head.next.value);
+				if(head.next.next == null){
+					System.out.println("YAS");
+				}
+				b4tail = head;
+				return;
+			}
+			Node headNext = head.next;
+			tail = head;
+			head = b4tail.next;
+			tail.next = null;
+			head.next = headNext;
+			b4tail.next = tail;
 			return;
 		}
-		tail = head;
-		head = tailb4.next;
-		tail.next = null;
-		head.next = headNext;
-		tailb4.next = tail;
 		return;
 	}
 
 	public void printQueue() {
 		Node checkMe = head;
 		String str = "";
+		if(checkMe == null){
+			System.out.println("NULL");
+			return;
+		}
 		while(checkMe.next != null){
 			int val = checkMe.value;
 			String num = Integer.toString(val);

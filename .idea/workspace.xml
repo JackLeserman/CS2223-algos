@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/SpecialQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" afterDir="false" />
     </list>
@@ -20,6 +21,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="27AYGxTcOMX5c3HKQ75x0z0pNVe" />
   <component name="ProjectViewState">
@@ -57,8 +66,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PartialValidationRangeList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.PartialValidationRangeList" />
+    <configuration name="PerformanceRangeList (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.PerformanceRangeList" />
       <module name="CS2223-algos" />
       <extension name="coverage">
         <pattern>
@@ -70,12 +79,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PerformanceRangeList (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.PerformanceRangeList" />
+    <configuration name="PerformanceSpecialQueue (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="algs.hw2.PerformanceSpecialQueue" />
       <module name="CS2223-algos" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jleserman.hw2.*" />
+          <option name="PATTERN" value="algs.hw2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,9 +122,9 @@
       <list>
         <item itemvalue="Application.testSpecialQueue" />
         <item itemvalue="Application.PerformanceSpecialQueue" />
+        <item itemvalue="Application.PerformanceSpecialQueue (1)" />
         <item itemvalue="Application.PerformanceRangeList (1)" />
         <item itemvalue="Application.Analysis" />
-        <item itemvalue="Application.PartialValidationRangeList" />
       </list>
     </recent_temporary>
   </component>
@@ -146,14 +155,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="55" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="jleserman.hw2.RangeList$Node" memberName="low" />

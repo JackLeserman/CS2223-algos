@@ -8,8 +8,6 @@ public class testSpecialQueue {
         sq.enqueue(2);
         sq.enqueue(3);
         sq.printQueue();
-        sq.dequeue();
-        sq.printQueue();
         sq.enqueue(999);
         sq.enqueue(4);
         sq.enqueue(5);
