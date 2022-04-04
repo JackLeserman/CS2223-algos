@@ -18,7 +18,6 @@ public class SpecialQueue {
 	}
 	Node head = null; //first
 	Node tail = null; //last
-	Node b4tail; //second to last
 	int size = 0;
 
 	/** 
@@ -33,7 +32,7 @@ public class SpecialQueue {
 			tail.prev = null;
 		}else {
 			tail.next = node;
-			b4tail = tail;
+			node.prev = tail;
 			tail = node; //
 		}
 	}
@@ -46,10 +45,7 @@ public class SpecialQueue {
 		Node node = head;
 		head = node.next;
 		if(node == tail){
-			b4tail = null;
-		}
-		if(node == b4tail){
-			b4tail = null;
+			node.prev = null;
 		}
 		return node.value;
 	}
@@ -65,10 +61,8 @@ public class SpecialQueue {
 	 * Performance is O(N) where N is the number of values in the queue.
 	 */
 	public int dequeueLargest() {
-		Node checkMe;
-		Node largestNode;
-		Node oneBeforeLargest;
-		Node twoBeforeLargest;
+		Node checkMe = head;
+		Node largestNode = null;
 		int largestInt = 0;
 
 		if (isEmpty()) {
@@ -81,12 +75,35 @@ public class SpecialQueue {
 				largestNode = checkMe;
 				largestInt = largest;
 			}
+			checkMe = checkMe.next;
+		}
+		int largest = checkMe.value;
+		if (largest > largestInt) {
+			largestNode = checkMe;
+			largestInt = largest;
+		}
+		if(largestNode == null){
+			throw new RuntimeException("Queue Empty");
 		}
 
+		if(largestNode == tail){
+			tail = largestNode.prev;
+			tail.next = null;
+			return largestInt;
+		}
+		if(largestNode == head){
+			head = largestNode.next;
+			head.prev = null;
+			return largestInt;
 
-
-	return largestInt;
+		}
+		Node beforeLargest = largestNode.prev;
+		Node afterLargest = largestNode.next;
+		beforeLargest.next = afterLargest;
+		afterLargest.prev = beforeLargest;
+		return largestInt;
 	}
+
 	public int dequeueLargestOLD() {
 		int largestInt = Integer.MIN_VALUE;
 		Node largestNode = null;
@@ -117,13 +134,6 @@ public class SpecialQueue {
 			return largestInt;
 		}else{
 			previousNodeLargest.next = largestNode.next;
-		}
-
-		if(largestNode == b4tail){
-
-		}
-		if(previousNodeLargest == b4tail){
-
 		}
 
 		return largestInt;
@@ -171,7 +181,7 @@ public class SpecialQueue {
 			return;
 		}
 
-		if(b4tail == head){
+		if(tail.prev == head){
 			Node newTail = head;
 			head = tail;
 			head.next = newTail;
@@ -184,7 +194,7 @@ public class SpecialQueue {
 		Node newTail = head;
 		head = tail;
 		head.next = newTail.next;
-		b4tail.next = newTail;
+		//b4tail.next = newTail;
 		tail = newTail;
 		tail.next = null;
 
