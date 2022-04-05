@@ -113,8 +113,8 @@
       <list>
         <item itemvalue="Application.testSpecialQueue" />
         <item itemvalue="Application.PerformanceSpecialQueue" />
-        <item itemvalue="Application.Analysis" />
         <item itemvalue="Application.PerformanceRangeList (1)" />
+        <item itemvalue="Application.Analysis" />
         <item itemvalue="Application.PartialValidationRangeList" />
       </list>
     </recent_temporary>
@@ -148,10 +148,11 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="55" />
-        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/jleserman/hw2/PerformanceSpecialQueue.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

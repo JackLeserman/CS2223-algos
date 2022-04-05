@@ -27,9 +27,9 @@ public class SpecialQueue {
 	public void enqueue(int val) { //
 		size++;
 		Node node = new Node(val);
-		if(tail==null){ //If this is the FIRST
+		if(tail==null && head==null){ //If this is the FIRST
 			head = tail = node;
-			tail.prev = null;
+			tail.prev = null; //todo
 		}else {
 			tail.next = node;
 			node.prev = tail;
@@ -42,6 +42,7 @@ public class SpecialQueue {
 	 * Performance must be O(1) 
 	 */
 	public int dequeue() {
+		size--;
 		Node node = head;
 		head = node.next;
 		if(node == tail){
@@ -68,7 +69,7 @@ public class SpecialQueue {
 		if (isEmpty()) {
 			throw new RuntimeException("Queue Empty");
 		}
-
+		size--;
 		while (checkMe.next != null) {
 			int largest = checkMe.value;
 			if (largest > largestInt) {
@@ -155,14 +156,7 @@ public class SpecialQueue {
 	 * Performance must be O(1)
 	 */
 	public int size() {
-		Node checkMe = head;
-		int counter = 0;
-		while(checkMe != tail) {
-			counter = counter + 1;
-			checkMe = checkMe.next;
-		}
-		counter = counter + 1;
-		return counter;
+		return size;
 	}
 	
 	/**
@@ -174,29 +168,34 @@ public class SpecialQueue {
 	 * If you can implement this method in O(1) time, +4 points
 	 */
 	public void swapEndPoints() {
-		if (head == tail) {
-			return;
-		}
-		if (head == null) {
+		if (size < 2) {
 			return;
 		}
 
-		if(tail.prev == head){
+		if(size == 2){
 			Node newTail = head;
 			head = tail;
 			head.next = newTail;
 			tail = newTail;
 			tail.next = null;
+			tail.prev = head;
 			return;
-
 		}
-
+		Node b4tail = tail.prev;
+		Node afterHead = head.next;
+		Node newHead = tail;
 		Node newTail = head;
-		head = tail;
-		head.next = newTail.next;
-		//b4tail.next = newTail;
+
+		newTail.prev = b4tail;
+		newTail.next = null;
+		b4tail.next = newTail;
+
+		newHead.prev = null;
+		newHead.next = afterHead;
+		afterHead.prev = newHead;
+
+		head = newHead;
 		tail = newTail;
-		tail.next = null;
 
 
 	}
