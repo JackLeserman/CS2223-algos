@@ -99,6 +99,30 @@ public class RangeList {
 	 * If you have a solution that provides O(N) performance you get +10 points
 	 */
 	public boolean subsetOf(RangeList rl) {
+		Node checkMeCurr = rl.head;   // [1 2 3 4 5 6 7]
+		Node checkMeMaster = head; //[2 3 4]
+
+		while(checkMeMaster != null){
+			int checkMeMasterL = checkMeMaster.low;
+			int checkMeMasterH = checkMeMaster.high;
+			int checkMeCurrL = checkMeCurr.low;
+			int checkMeCurrH = checkMeCurr.high;
+
+			if(checkMeMasterL >= checkMeCurrL && checkMeMasterH <= checkMeCurrH){
+				checkMeMaster = checkMeMaster.next;
+			} else if(checkMeMasterL < checkMeCurrL){
+				return false;
+			} else if(checkMeMasterH > checkMeCurrH) {
+				if(checkMeCurr.next == null){
+					return false;
+				}
+				checkMeCurr = checkMeCurr.next;
+			}
+		}
+		return true;
+	}
+
+	public boolean subsetOfOld(RangeList rl) {
 		LinkedList<Integer> curr = new LinkedList();
 		LinkedList<Integer> master = new LinkedList();
 		Node checkMeCurr = head;

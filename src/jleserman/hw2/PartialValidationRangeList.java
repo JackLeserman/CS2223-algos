@@ -11,6 +11,29 @@ package jleserman.hw2;
 public class PartialValidationRangeList {
 	public static void main(String[] args) {
 		jleserman.hw2.RangeList rl = new jleserman.hw2.RangeList();
+		jleserman.hw2.RangeList subSetTestMain = new jleserman.hw2.RangeList();
+		jleserman.hw2.RangeList subSetTestSubsetT = new jleserman.hw2.RangeList();
+		jleserman.hw2.RangeList subSetTestSubsetF = new jleserman.hw2.RangeList();
+
+		subSetTestMain.add(1);
+		subSetTestMain.add(2);
+		subSetTestMain.add(3);
+		subSetTestMain.add(4);
+		subSetTestMain.add(8);
+		subSetTestMain.add(11);
+		subSetTestMain.add(12);
+
+		subSetTestSubsetT.add(2);
+		subSetTestSubsetT.add(3);
+		subSetTestSubsetT.add(8);
+		subSetTestSubsetT.add(11);
+
+		subSetTestSubsetF.add(2);
+		subSetTestSubsetF.add(3);
+		subSetTestSubsetF.add(5);
+
+		System.out.println("Must be true subSet: " + subSetTestSubsetT.subsetOf(subSetTestMain));
+		System.out.println("Must be false subSet: " + subSetTestSubsetF.subsetOf(subSetTestMain));
 
 		rl.add(11);
 		System.out.println("Must be 11: " + rl);
@@ -27,8 +50,8 @@ public class PartialValidationRangeList {
 		rl2.add(11);
 		System.out.println("Must be 5: " + rl2.numberRanges());
 		System.out.println("Must be 5: " + rl2.numberValues());
-		System.out.println("Must be true: " + rl.subsetOf(rl2));
-		System.out.println("Must be false: " + rl2.subsetOf(rl));
+		System.out.println("Must be true subSet: " + rl.subsetOf(rl2));
+		System.out.println("Must be false subSet: " + rl2.subsetOf(rl));
 		System.out.println("Must be true: " + rl.contains(11));
 		System.out.println("Must be false: " + rl.contains(15));
 		

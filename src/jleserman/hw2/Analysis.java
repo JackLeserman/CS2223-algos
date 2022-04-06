@@ -88,7 +88,7 @@ public class Analysis {
 	 * of how many times Math.power() is called for an initial problem of size n.
 	 */
 	static long model(int n) {
-		double b = Math.pow(2, log2(n)+1) + Math.pow(2, log2(n)) + log2(n)*(n/2)-1;
+		double b = Math.pow(2, log2(n)+1) + Math.pow(2, log2(n)) + log2(n)*(n/2)-1; //todo
 		long x = (new Double(b)).longValue();
 		return x;
 	}

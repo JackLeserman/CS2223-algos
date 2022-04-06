@@ -2,17 +2,17 @@ package jleserman.hw2;
 
 public class testSpecialQueue {
     public static void main(String[] args) {
-        SpecialQueue sq = new SpecialQueue();
-        sq.enqueue(1);
-        sq.enqueue(2);
-        sq.enqueue(3);
-        sq.enqueue(4);
-        sq.printQueue();
-        sq.swapEndPoints();
-        sq.printQueue();
-        sq.swapEndPoints();
-        sq.printQueue();
-        /*
+        SpecialQueue sq1 = new SpecialQueue();
+        sq1.enqueue(1);
+        sq1.enqueue(2);
+        sq1.enqueue(3);
+        sq1.enqueue(4);
+        sq1.printQueue();
+        sq1.swapEndPoints();
+        sq1.printQueue();
+        sq1.swapEndPoints();
+        sq1.printQueue();
+
         SpecialQueue sq = new SpecialQueue();
         System.out.println(sq.isEmpty()); //TODO
         System.out.println("Size " + sq.size());
@@ -34,6 +34,5 @@ public class testSpecialQueue {
         sq.swapEndPoints();
         sq.printQueue();
         System.out.println(sq.isEmpty());
-         */
     }
 }
