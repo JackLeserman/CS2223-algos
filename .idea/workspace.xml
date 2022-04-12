@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/testSpecialQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS2223-algos/jleserman/hw2/testSpecialQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/Analysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/Analysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/RangeList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jleserman/hw2/testSpecialQueue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,16 +40,20 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/jleserman/hw2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jack\Desktop\Algos\CS2223-algos\src\jleserman\hw2" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="jleserman.hw2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PerformanceRangeList (1)">
+  <component name="RunManager" selected="Application.PerformanceSpecialQueue">
     <configuration name="Analysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jleserman.hw2.Analysis" />
       <module name="CS2223-algos" />
@@ -122,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PerformanceRangeList (1)" />
         <item itemvalue="Application.PerformanceSpecialQueue" />
+        <item itemvalue="Application.Analysis" />
+        <item itemvalue="Application.PerformanceRangeList (1)" />
         <item itemvalue="Application.PartialValidationRangeList" />
         <item itemvalue="Application.testSpecialQueue" />
-        <item itemvalue="Application.Analysis" />
       </list>
     </recent_temporary>
   </component>
