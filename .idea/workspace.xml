@@ -2,6 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/BST_SymbolTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/BenfordValidate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/SortTrials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/Table.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/TestBST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/bonus/BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/bonus/SimpleRangeList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Exchangeable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/HeapSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Insertion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Merge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Quick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Selection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,13 +54,14 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/jleserman/hw2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/jleserman" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jack\Desktop\Algos\CS2223-algos\src\jleserman" />
       <recent name="C:\Users\Jack\Desktop\Algos\CS2223-algos\src\jleserman\hw2" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
