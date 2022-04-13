@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 import edu.princeton.cs.algs4.*;
 
+// all class attributes are PUBLIC so I can report statistics.
 public class SeparateChainingHashST<Key, Value> {
-	int N;                                // number of key-value pairs
-	int M;                                // hash table size
-	SequentialSearchST<Key, Value>[] st;  // array of linked-list symbol tables
+	public int N;                                // number of key-value pairs
+	public int M;                                // hash table size
+	public SequentialSearchST<Key, Value>[] st;  // array of linked-list symbol tables
 
 	final static int INIT_CAPACITY = 11;   // initial default size
 	final static int AVG_LENGTH = 7;      // Threshold to determine resizing
