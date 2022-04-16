@@ -8,13 +8,13 @@ public class BenfordValidate {
 	static Integer countMeters;
 	static Integer totalCounts;
 	public static void printTable(BST treeFeet, BST treeMeters){
-		System.out.println(totalCounts);
 		for(int N = 0; N<=9; N++){
 			int valFeet = treeFeet.get(Integer.toString(N));
 			int valMeters = treeMeters.get(Integer.toString(N));
-			long percFeet = (treeFeet.get(Integer.toString(N))/(totalCounts)); //TODO wtf
-			long percMeters = (treeMeters.get(Integer.toString(N))/totalCounts);
-			System.out.println(N + "\t" + valFeet + "\t" + percFeet + "\t" + valMeters + "\t" + percMeters);
+			double percFeet = ((double) valFeet/(double)(totalCounts))*100;
+			double percMeters = ((double)valMeters/(double)totalCounts)*100;
+			double pBL =((double)(valFeet + valMeters)/(double)(totalCounts*2))*100;
+			System.out.println(N + " || " + valMeters + " | " + (int)percMeters + "% ||| " + valFeet + " | " + (int)percFeet + "% |||| "+ (int) pBL + "%");
 		}
 	}
 
@@ -41,10 +41,10 @@ public class BenfordValidate {
 			treeMeters.put(Integer.toString(N),countMeters);
 			totalCounts = totalCounts + countFeet;
 			}
-		System.out.println("\t \t \t FEET \t \t   || \t \t \t METERS");
+		System.out.println("             METERS        |||         FEET              ");
+		System.out.println("Leading Digit || Count | % ||| Leading Digit | Count | % |||| BENFORDS LAW");
 		System.out.println("==========================================================");
-		System.out.println("Leading Digit \t Count \t % || Leading Digit \t Count \t % ");
-		System.out.println(totalCounts);
+		System.out.println("");
 		printTable(treeFeet, treeMeters);
 		}
 	}
