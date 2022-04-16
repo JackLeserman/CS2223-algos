@@ -1,7 +1,5 @@
 package jleserman.hw3;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 /**
  * Copy this class into the package where you have BST and it should run
  * without any errors

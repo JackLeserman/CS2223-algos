@@ -1,106 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/BST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/BST_SymbolTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/BenfordValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/SortTrials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/TestBST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/bonus/BST.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/bonus/SimpleRangeList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Exchangeable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/HeapSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Insertion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Merge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Quick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/jleserman/hw3/sort/Selection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8d137e4c-5224-4f1d-9c45-4ab71882c0ab" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="27AYGxTcOMX5c3HKQ75x0z0pNVe" />
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="27pyXw8p5ehOiyciDPzQdePAw29" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/jleserman" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Jack\Desktop\Algos\CS2223-algos\src\jleserman" />
-      <recent name="C:\Users\Jack\Desktop\Algos\CS2223-algos\src\jleserman\hw2" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="jleserman.hw2" />
-    </key>
   </component>
   <component name="RunManager" selected="Application.BenfordValidate">
-    <configuration name="Analysis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.Analysis" />
-      <module name="CS2223-algos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jleserman.hw2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BenfordValidate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jleserman.hw3.BenfordValidate" />
       <module name="CS2223-algos" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="jleserman.hw3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PerformanceSpecialQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jleserman.hw2.PerformanceSpecialQueue" />
-      <module name="CS2223-algos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jleserman.hw2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,75 +55,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestBST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jleserman.hw3.TestBST" />
-      <module name="CS2223-algos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="jleserman.hw3.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BenfordValidate" />
         <item itemvalue="Application.SortTrials" />
-        <item itemvalue="Application.TestBST" />
-        <item itemvalue="Application.PerformanceSpecialQueue" />
-        <item itemvalue="Application.Analysis" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="19b4cc8e-b439-41f1-ba1b-0d24cd7c7d3b" name="Changes" comment="" />
-      <created>1648764265852</created>
+      <changelist id="8d137e4c-5224-4f1d-9c45-4ab71882c0ab" name="Changes" comment="" />
+      <created>1650031366423</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1648764265852</updated>
+      <updated>1650031366423</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/jleserman/hw2/PartialValidationRangeList.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArithmeticException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="jleserman.hw2.RangeList$Node" memberName="low" />
-        <PinnedItemInfo parentTag="jleserman.hw3.BST$Node" memberName="left" />
-      </pinned-members>
-    </pin-to-top-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CS2223_algos$SortTrials.ic" NAME="SortTrials Coverage Results" MODIFIED="1649894757341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>jleserman.hw3.*</FILTER>
-    </SUITE>
   </component>
 </project>

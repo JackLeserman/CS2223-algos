@@ -18,7 +18,7 @@ public class SortTrials {
 		for(int i = 0; i<A.length; i++){
 			counter = counter + A[i].getExchangeCount();
 		}
-		return counter;
+		return counter/2;
 	}
 
 	public static void runHS(Exchangeable[] A){
@@ -60,11 +60,13 @@ public class SortTrials {
 
 
 	public static void printData(int N){
-		System.out.println(N+"\t"+maxHS+"\t"+maxMS+"\t"+maxIS+"\t"+maxQS+"\t"+maxSS);
+		System.out.println(N+"   "+maxHS+"   "+maxMS+"   "+maxIS+"    " +maxQS+"   "+maxSS);
+		//System.out.println(N+"\t"+maxHS+"\t"+maxMS+"\t"+maxIS+"\t"+maxQS+"\t"+maxSS);
 	}
 
+	//TODO after it is bigger than 4096 for sort 5 then pass
 	public static void main(String[] args) {
-		System.out.println("N\tInsertionSort\tSelectionSort\tQuickSort\tHeapSort\tMergeSort");
+		System.out.println("N\tInsert\tSelect\tQuick\tHeap\tMerge");
 		for (int N = 128; N <= 16384; N *= 2) {
 			for (int i = 0; i < 100; i++) {
 				Exchangeable[] HS = Exchangeable.create(N);
