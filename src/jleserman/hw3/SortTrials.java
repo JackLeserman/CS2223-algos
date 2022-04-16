@@ -1,4 +1,5 @@
 package jleserman.hw3;
+import edu.princeton.cs.algs4.In;
 import jleserman.hw3.sort.*;
 
 /**
@@ -9,6 +10,7 @@ public class SortTrials {
 	static int maxHS = 0;
 	static int maxMS = 0;
 	static int maxIS = 0;
+	static String isStr;
 	static int maxQS = 0;
 	static int maxSS = 0;
 
@@ -35,11 +37,17 @@ public class SortTrials {
 			maxMS = counts;
 		}
 	}
-	public static void runIS(Exchangeable[] A){
-		Insertion.sort(A);
-		int counts = sumA(A);
-		if(counts > maxIS){
-			maxIS = counts;
+	public static void runIS(int N){
+		if(N <= 2048) {
+			Exchangeable[] A = Exchangeable.create(N);
+			Insertion.sort(A);
+			int counts = sumA(A);
+			if (counts > maxIS) {
+				maxIS = counts;
+				isStr = Integer.toString(maxIS);
+			}
+		}else{
+			isStr = "*";
 		}
 	}
 
@@ -60,23 +68,21 @@ public class SortTrials {
 
 
 	public static void printData(int N){
-		System.out.println(N+"   "+maxHS+"   "+maxMS+"   "+maxIS+"    " +maxQS+"   "+maxSS);
+		System.out.println(N+"   "+maxSS+"   "+maxQS+"   "+maxHS+"    " +maxMS+"   "+isStr);
 		//System.out.println(N+"\t"+maxHS+"\t"+maxMS+"\t"+maxIS+"\t"+maxQS+"\t"+maxSS);
 	}
 
-	//TODO after it is bigger than 4096 for sort 5 then pass
 	public static void main(String[] args) {
-		System.out.println("N\tInsert\tSelect\tQuick\tHeap\tMerge");
+		System.out.println("N\tSelect\tQuick\tHeap\tMerge\tInsert");
 		for (int N = 128; N <= 16384; N *= 2) {
 			for (int i = 0; i < 100; i++) {
 				Exchangeable[] HS = Exchangeable.create(N);
 				Exchangeable[] MS = Exchangeable.create(N);
-				Exchangeable[] IS = Exchangeable.create(N);
 				Exchangeable[] QS = Exchangeable.create(N);
 				Exchangeable[] SS = Exchangeable.create(N);
 				runHS(HS);
 				runMS(MS);
-				runIS(IS);
+				runIS(N);
 				runQS(QS);
 				runSS(SS);
 			}
