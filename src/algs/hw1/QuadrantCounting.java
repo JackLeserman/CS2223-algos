@@ -30,6 +30,57 @@ public class QuadrantCounting extends CartesianTrials {
 	@Override
 	protected int countCartesiansInQuadrant(OrderedArray<Point> cartesians, int q) {
 		// TODO Auto-generated method stub
+		if (q == 1) {
+			int leftEdge = 0;
+		}
+		
+		if (q == 4) {
+			int rightEdge = cartesians.length()-1;
+		}
+		
+		if (q == 2) {
+			// find left edge BETWEEN Q1 and Q2
+			Point leftEdgePoint = new Point(0, Integer.MAX_VALUE);
+			int leftEdge;
+			int lo = 0;
+			int hi = cartesians.length() -1;
+			while (lo <= hi) {
+				int mid = (lo + hi) / 2;
+				Point midPoint = cartesians.get(mid);
+				
+				// int rc = Integer.compare(A[mid], target);
+				int rc = Sorting.compareCartesianByQuadrant.compare(midPoint, leftEdgePoint);
+				if (rc >= 0) {            // Greater than or equal? Still haven't found left edge
+					hi = mid - 1;         // so reduce hi to below mid and keep looking
+				} else {
+					lo = mid + 1;
+				}				
+			}
+			leftEdge = lo;
+			
+			Point rightEdgePoint = new Point(Integer.MIN_VALUE, 0);   
+			
+			// find right edge edge BETWEEN Q2 and Q3
+			int rightEdge;
+			lo = 0;
+			hi = cartesians.length() -1;
+			while (lo <= hi) {
+				int mid = (lo + hi) / 2;
+				Point midPoint = cartesians.get(mid);
+				
+				int rc = Sorting.compareCartesianByQuadrant.compare(midPoint, rightEdgePoint);
+				if (rc <= 0) {             // Lesser than or equal? Still haven't found right edge
+					lo = mid + 1;          // so increase lo to above mid and keep looking
+				} else {
+					hi = mid - 1;
+				}				
+			}
+			
+			rightEdge = hi;
+			
+			return rightEdge - leftEdge + 1;
+		}
+		
 		return 0;
 	}
 

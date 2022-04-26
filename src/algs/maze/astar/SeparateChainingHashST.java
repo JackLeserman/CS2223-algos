@@ -1,14 +1,13 @@
-package algs.days.day10;
-
-import java.util.Arrays;
+package algs.maze.astar;
 
 import edu.princeton.cs.algs4.*;
 
-// all class attributes are PUBLIC so I can report statistics.
+// put here for AStarSolver
+
 public class SeparateChainingHashST<Key, Value> {
-	public int N;                                // number of key-value pairs
-	public int M;                                // hash table size
-	public SequentialSearchST<Key, Value>[] st;  // array of linked-list symbol tables
+	int N;                                // number of key-value pairs
+	int M;                                // hash table size
+	SequentialSearchST<Key, Value>[] st;  // array of linked-list symbol tables
 
 	final static int INIT_CAPACITY = 11;   // initial default size
 	final static int AVG_LENGTH = 7;      // Threshold to determine resizing
@@ -29,10 +28,8 @@ public class SeparateChainingHashST<Key, Value> {
 	void resize(int chains) {
 		SeparateChainingHashST<Key, Value> temp = new SeparateChainingHashST<Key, Value>(chains);
 		for (int i = 0; i < M; i++) {
-			SequentialSearchST<Key,Value>.Node node = st[i].first;
-			while (node != null) {
-				temp.put(node.key, node.value);
-				node = node.next;
+			for (Key key : st[i]) {                  // NOTE ITERATOR OVER KEYS
+				temp.put(key, st[i].get(key));
 			}
 		}
 
@@ -43,9 +40,6 @@ public class SeparateChainingHashST<Key, Value> {
 
 	// hash value between 0 and M-1
 	int hash(Key key) {
-		// what if the hash doesn't do a good job?
-		//return ((String) key).charAt(0) % M;
-		
 		return (key.hashCode() & 0x7fffffff) % M;
 	} 
 
@@ -60,7 +54,7 @@ public class SeparateChainingHashST<Key, Value> {
 
 	public void put(Key key, Value val) {
 		// double table size if average length of list >= AVG_LENGTH
-		if (N >= AVG_LENGTH*M) resize(2*M+1);
+		if (N >= AVG_LENGTH*M) resize(2*M);
 
 		int i = hash(key);
 		if (!st[i].contains(key)) N++;
@@ -87,24 +81,20 @@ public class SeparateChainingHashST<Key, Value> {
 		
 		
 		In in = new In ("words.english.txt");
-		StopwatchCPU create = new StopwatchCPU();
 		while (!in.isEmpty()) {
 			String word = in.readString(); 
 			table.put(word, word);      // You can use value as the key
 		}
 		in.close();
-		StdOut.printf("Elapsed time %.2f seconds\n", create.elapsedTime());
+
 		StdOut.println(table.size() + " words in the hash table.");
-		
+
 		// number of empty bins
 		// largest chain length
 		// number of size 1
 		int numEmpty = 0;
 		int maxChain = 0;  
 		int numSingle = 0;
-		int maxLength = 30; // more than enough if hash function is good...
-		int[] distribution = new int[maxLength];
-		int numExcessive = 0;  // how many that exceeded maxLength
 		for (int i = 0; i < table.M; i++) {
 			if (table.st[i].isEmpty()) {
 				numEmpty++;
@@ -116,12 +106,6 @@ public class SeparateChainingHashST<Key, Value> {
 			if (table.st[i].size() == 1) {
 				numSingle++;
 			}
-			
-			if (table.st[i].size() < maxLength) {
-				distribution[table.st[i].size()]++;
-			} else {
-				numExcessive++;
-			}
 		}
 
 		double percent = 100*(1-(numEmpty*1.0)/table.M);
@@ -129,8 +113,6 @@ public class SeparateChainingHashST<Key, Value> {
 		StdOut.println("  there are " + numEmpty + " empty indices " + percent + "%");
 		StdOut.println("  maximum chain is " + maxChain);
 		StdOut.println("  number of single is " + numSingle);
-		StdOut.println("  size distribution:" + Arrays.toString(distribution));
-		StdOut.println("  number of excessive:" + numExcessive);
 		
 		// validate we can reduce
 		in = new In ("words.english.txt");
@@ -140,6 +122,6 @@ public class SeparateChainingHashST<Key, Value> {
 		}
 		in.close();
 
-		StdOut.println("Empty Table has " + table.M + " indices.");
+		StdOut.println("Table has " + table.M + " indices.");
 	}
 }

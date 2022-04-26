@@ -2,8 +2,6 @@ package algs.days.day12;
 
 import java.util.Arrays;
 
-import edu.princeton.cs.algs4.StdRandom;
-
 /**
  * This is a smaller copy of the actual MaxPQ code in the edu.princeton.cs.algs package. Done
  * this way to make it easier to present in class.
@@ -27,7 +25,7 @@ public class MaxPQ<Key> {
 		swim(N);
 	}
 	
-	public String toString() {  
+	public String toString() {       // for debugging
 		return Arrays.toString(pq);
 	}
 
@@ -90,45 +88,6 @@ public class MaxPQ<Key> {
 	 *  Sample main
 	 ****************************/
 	public static void main(String[] args) {
-		for (int n = 8; n <= 256; n++) {
-			
-			// pick 500 as the value that "repeats". Does it matter what its value is?
-			int repeater = 500;
-			int[] vals = new int[n];
-			
-			int delta = 1;
-			for (int i = 0; i < n/2 + delta; i++) {
-				vals[i] = repeater;
-			}
-			
-			for (int i = n/2+delta; i < n; i++) {  // random values.
-				int rnd = (int) (1000*(Math.random()));
-				if (rnd == repeater) { rnd++; } // hack to avoid repeater...
-				vals[i] = rnd;
-			}
-			
-			// how many times repeater appeared in a leaf position.
-			
-			for (int t = 0; t < 50; t++) {
-				int leafCount = 0;
-				// create MPQ from these integers that are shuffled
-				MaxPQ<Integer> mpq = new MaxPQ<Integer>(n);
-				StdRandom.shuffle(vals);
-				for (int v : vals) {
-					mpq.insert(v);
-				}
-				
-				Object[] oo = mpq.pq;
-				for (int i = n/2+1; i <= n; i++) {
-					Integer iv = (Integer) oo[i];
-					if (iv.intValue() == repeater) {
-						leafCount++;
-					}
-				}
-				if (leafCount == 0) {
-					System.out.println(n + "\t" + t + "\t" + leafCount);
-				}
-			}
-		}
+		
 	}
 }
