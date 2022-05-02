@@ -47,13 +47,13 @@ public class MapSearch {
 		throw new RuntimeException("Student Completes");
 	}
 
-	/** 
+	/**
 	 * This helper method returns the western-most data point in the Information, given its latitude and
 	 * longitude.
-	 * 
+	 *
 	 * https://en.wikipedia.org/wiki/Latitude
 	 * https://en.wikipedia.org/wiki/Longitude
-	 * 
+	 *
 	 */
 	public static int easternMostVertex(Information info) {
 		throw new RuntimeException("Student Completes");
@@ -90,6 +90,12 @@ public class MapSearch {
 
 		int south = southernMostVertex(info);
 		int north = northernMostVertex(info);
+
+		System.out.println("West: " + west);
+		System.out.println("West: " + east);
+		System.out.println("West: " + south);
+		System.out.println("West: " + north);
+
 
 		System.out.println("BreadthFirst Search from West to East:");
 		// DO SOME WORK HERE

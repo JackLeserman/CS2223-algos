@@ -181,8 +181,10 @@ public class AVL<Key extends Comparable<Key>> {
 	 */
 	public SeparateChainingHashST<Integer,Integer> counts() {
 		SeparateChainingHashST<Integer,Integer> ht = new SeparateChainingHashST<>();
-
-		// FILL IN and complete
+		ht.put(-1,0);
+		ht.put(0,0);
+		ht.put(1,0);
+		counts(root,ht);
 		return ht;
 	}
 
@@ -191,7 +193,32 @@ public class AVL<Key extends Comparable<Key>> {
 	 * in the sub-tree rooted at parent.
 	 */
 	private void counts(Node parent, SeparateChainingHashST<Integer,Integer> ht) { 
-		// FILL IN AND COMPLETE
+		if(heightDifference(parent) == -1){
+			int val = ht.get(-1);
+			ht.put(-1,val + 1);
+		}
+
+		if(heightDifference(parent) == 0){
+			int val = ht.get(0);
+			ht.put(0,val + 1);
+		}
+
+		if(heightDifference(parent) == -1){
+			int val = ht.get(1);
+			ht.put(1,val + 1);
+		}
+
+		if(parent.left != null){
+			counts(parent.left,ht);
+		}
+		if(parent.right != null){
+			counts(parent.right,ht);
+		}
+	}
+
+	public int getZeroCounts(){
+		SeparateChainingHashST<Integer, Integer> sch = counts();
+		return sch.get(0);
 	}
 
 	/**
@@ -202,7 +229,8 @@ public class AVL<Key extends Comparable<Key>> {
 	 * The depth of a leaf node is the number of edges required to traverse to that node from the root.
 	 */
 	public int minDepth() {
-		throw new RuntimeException("TO BE COMPLETED");
+		int minDep = minDepth(root, 0, Integer.MAX_VALUE);
+		return minDep;
 	}
 	
 	/**
@@ -210,17 +238,40 @@ public class AVL<Key extends Comparable<Key>> {
 	 * at parent, assuming that the parent node is at depth "currentDepth" and that the lowest depth
 	 * so far recorded for a leaf node is "lowestSoFar."
 	 */
+
 	private int minDepth(Node parent, int currentDepth, int lowestSoFar) {
-		throw new RuntimeException("TO BE COMPLETED");
+		if (parent.left != null) {
+			minDepth(parent.left, currentDepth + 1, lowestSoFar);
+		}
+		if (parent.right != null) {
+			minDepth(parent.right, currentDepth + 1, lowestSoFar);
+		}
+		if (parent.right == null && parent.left == null) {
+			if (currentDepth < lowestSoFar) {
+				lowestSoFar = currentDepth;
+			}
+		}
+		return lowestSoFar; //recursive todo
 	}
 	
 	/** Public facing API call to return the height of the AVL tree. */
 	public int height() {
-		throw new RuntimeException("TO BE COMPLETED");
+		int height = height(root, Integer.MIN_VALUE);
+		return height;
 	}
 
 	/** Helper method to return the height of the subtree rooted at parent. */
-	private int height(Node parent) {
-		throw new RuntimeException("TO BE COMPLETED");
+	private int height(Node parent, int maxHeight) {
+		int nodeHt = parent.height;
+		if(nodeHt > maxHeight){
+			maxHeight = nodeHt;
+		}
+		if(parent.left != null){
+			height(parent.left, maxHeight);
+		}
+		if(parent.right != null){
+			height(parent.right, maxHeight);
+		}
+		return nodeHt;
 	}
 }

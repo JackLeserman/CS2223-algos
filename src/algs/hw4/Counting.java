@@ -43,15 +43,17 @@ public class Counting {
 					rbt.put(v,0);
 				}
 				int avHeight = avlTree.height();
-				int depthDiff = avHeight - avlTree.minDepth();
+				int mindepth = avlTree.minDepth();
+				System.out.println((mindepth));
+				int depthDiff = avHeight - mindepth;
 				int numZeros  = avlTree.getZeroCounts();
-
 				if(avHeight > MaxAVHt){ MaxAVHt = avHeight;}
 				if(depthDiff > MaxAVDf){ MaxAVDf = depthDiff;}
 				if(numZeros > MaxAVZr){ MaxAVZr = numZeros;}
 //------RBT-----------------------------------------
 				int rbtHeight = rbt.height();
-				int depthDiffR = rbtHeight - rbt.minDepth();
+				int minDepth = rbt.minDepth();
+				int depthDiffR = rbtHeight - minDepth;
 				int numZeroR = rbt.getZeroCounts();
 
 				if(rbtHeight > MaxRBHt){MaxRBHt = rbtHeight;}

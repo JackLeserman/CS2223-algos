@@ -229,9 +229,8 @@ public class AVL<Key extends Comparable<Key>> {
 	 * 
 	 * The depth of a leaf node is the number of edges required to traverse to that node from the root.
 	 */
-	int lsf = Integer.MAX_VALUE;
 	public int minDepth() {
-		int minDep = minDepth(root, 0, lsf);
+		int minDep = minDepth(root, 0, Integer.MAX_VALUE);
 		return minDep;
 	}
 	
@@ -250,10 +249,10 @@ public class AVL<Key extends Comparable<Key>> {
 		}
 		if (parent.right == null && parent.left == null) {
 			if (currentDepth < lowestSoFar) {
-				lsf = currentDepth;
+				lowestSoFar = currentDepth;
 			}
 		}
-		return lsf;
+		return lowestSoFar; //recursive todo
 	}
 	
 	/** Public facing API call to return the height of the AVL tree. */

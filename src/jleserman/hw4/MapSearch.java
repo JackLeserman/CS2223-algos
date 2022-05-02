@@ -1,7 +1,16 @@
 package jleserman.hw4;
-
+import java.util.*;
+import java.io.*;
 import algs.hw4.map.HighwayMap;
 import algs.hw4.map.Information;
+import algs.maze.Position;
+import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.Queue;
+
+import javax.annotation.processing.SupportedSourceVersion;
+import java.awt.*;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * Copy this class into USERID.hw4 and make changes.
@@ -24,12 +33,55 @@ public class MapSearch {
 	 * 
 	 * Note that the edge is eliminated even when only one of the nodes involves M25.
 	 */
+	private static final int INFINITY = Integer.MAX_VALUE;
+	private static boolean[] marked;  // marked[v] = is there an s-v path
+	private static int[] edgeTo;      // edgeTo[v] = w means (w,v) on s-v path
+	private static int[] distTo;      // distTo[v] = number of edges shortest s-v path
+	static double maxNorthLON = Integer.MIN_VALUE;
+	static double maxSouthLON = Integer.MAX_VALUE;
+	static double maxWestLAT = Integer.MIN_VALUE;
+	static double maxEastLAT = Integer.MAX_VALUE;
+	static int maxNorth;
+	static int maxSouth;
+	static int maxWest;
+	static int maxEast;
+
+	public static void BreadthFirstPaths(Graph G, int s, int target) {
+		marked = new boolean[G.V()];
+		distTo = new int[G.V()];
+		edgeTo = new int[G.V()];
+		//bfs(G, s, target);
+	}
+
+	private void bfs(Graph G, int s, int target) {
+		Queue<Integer> q = new Queue<Integer>();
+		for (int v = 0; v < G.V(); v++) { distTo[v] = INFINITY; }
+		distTo[s] = 0;
+		marked[s] = true;
+		q.enqueue(s);
+
+		while (!q.isEmpty()) {
+			int v = q.dequeue();
+			for (int w : G.adj(v)) {
+				if (!marked[w]) {
+					edgeTo[w] = v;
+					distTo[w] = distTo[v] + 1;
+					marked[w] = true;
+					q.enqueue(w);
+					if (v == target) {
+						return;
+					}
+				}
+			}
+		}
+	}
+
+
+
 	static Information remove_M25_segments(Information info) {
 		
 		edu.princeton.cs.algs4.Graph g = info.graph;
 		edu.princeton.cs.algs4.Graph copy = new edu.princeton.cs.algs4.Graph(g.V());
-
-		// DO YOUR WORK HERE...
 		
 		Information newInfo = new Information(copy, info.positions, info.labels);
 		return newInfo;
@@ -44,7 +96,16 @@ public class MapSearch {
 	 * 
 	 */
 	public static int westernMostVertex(Information info) {
-		throw new RuntimeException("Student Completes");
+		SeparateChainingHashST<Integer, algs.hw4.map.GPS> pos = info.positions;
+		int v = info.graph.V();
+		for(int i = 0; i<v-1; i++){
+			double lat = pos.get(i).latitude;
+			if(lat > maxWest){
+				maxWestLAT = lat;
+				maxWest = i;
+			}
+		}
+		return maxWest;
 	}
 
 	/** 
@@ -56,7 +117,16 @@ public class MapSearch {
 	 * 
 	 */
 	public static int easternMostVertex(Information info) {
-		throw new RuntimeException("Student Completes");
+		SeparateChainingHashST<Integer, algs.hw4.map.GPS> pos = info.positions;
+		int v = info.graph.V();
+		for(int i = 0; i<v-1; i++){
+			double lat = pos.get(i).latitude;
+			if(lat < maxEast){
+				maxEastLAT = lat;
+				maxEast = i;
+			}
+		}
+		return maxEast;
 	}
 	
 	/** 
@@ -88,14 +158,16 @@ public class MapSearch {
 		int west = westernMostVertex(info);
 		int east = easternMostVertex(info);
 
-		int south = southernMostVertex(info);
-		int north = northernMostVertex(info);
+		//int south = southernMostVertex(info);
+		//int north = northernMostVertex(info);
 
 		System.out.println("BreadthFirst Search from West to East:");
-		// DO SOME WORK HERE
-		System.out.println("BFS: " + "SOMEPLACE" + "(" + 999 + ") to " + "SOMEPLACE" + "(" + 999 + ") has " + 9999 + " edges.");
-		
-		
+		BreadthFirstPaths(info.graph, west, east);
+		String nameWest = info.labels.get(west);
+		String nameEast = info.labels.get(east);
+
+		System.out.println("BFS: " + nameWest + "(" + maxWest + ") to " + nameEast + "(" + maxEast + ") has " +edgeTo.length + " edges.");
+
 		System.out.println("\nBreadthFirst Search from South to North:");
 		// DO SOME WORK HERE
 		System.out.println("BFS: " + "SOMEPLACE" + "(" + 999 + ") to " + "SOMEPLACE" + "(" + 999 + ") has " + 9999 + " edges.");
