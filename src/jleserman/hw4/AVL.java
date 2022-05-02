@@ -251,7 +251,7 @@ public class AVL<Key extends Comparable<Key>> {
 				lowestSoFar = currentDepth;
 			}
 		}
-		return lowestSoFar; //recursive todo
+		return lowestSoFar; //take this and place it into minDepth
 	}
 	
 	/** Public facing API call to return the height of the AVL tree. */
