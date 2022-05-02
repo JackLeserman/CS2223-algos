@@ -240,18 +240,18 @@ public class AVL<Key extends Comparable<Key>> {
 	 */
 
 	private int minDepth(Node parent, int currentDepth, int lowestSoFar) {
-		if (parent.left != null) {
-			minDepth(parent.left, currentDepth + 1, lowestSoFar);
-		}
-		if (parent.right != null) {
-			minDepth(parent.right, currentDepth + 1, lowestSoFar);
-		}
 		if (parent.right == null && parent.left == null) {
 			if (currentDepth < lowestSoFar) {
 				lowestSoFar = currentDepth;
 			}
 		}
-		return lowestSoFar; //take this and place it into minDepth
+		if (parent.left != null) {
+			lowestSoFar = minDepth(parent.left, currentDepth + 1, lowestSoFar);
+		}
+		if (parent.right != null) {
+			lowestSoFar = minDepth(parent.right, currentDepth + 1, lowestSoFar);
+		}
+		return lowestSoFar;
 	}
 	
 	/** Public facing API call to return the height of the AVL tree. */

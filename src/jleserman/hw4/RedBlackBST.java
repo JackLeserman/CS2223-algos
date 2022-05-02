@@ -674,10 +674,10 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         int leftHeight = 0;
         int rightHeight = 0;
         if (node.left != null) {
-            leftHeight = height(node.left);
+            leftHeight = 1 + height(node.left);
         }
         if (node.right != null) {
-            rightHeight = height(node.right);
+            rightHeight = 1 + height(node.right);
         }
         return leftHeight - rightHeight;
     }
@@ -694,9 +694,9 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      * <p>
      * The depth of a leaf node is the number of edges required to traverse to that node from the root.
      */
-    int lsf = Integer.MAX_VALUE;
+
     public int minDepth() {
-        int minDep = minDepth(root, 0, lsf);
+        int minDep = minDepth(root, 0, Integer.MAX_VALUE);
         return minDep;
     }
 
@@ -706,18 +706,18 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
      * so far recorded for a leaf node is "lowestSoFar."
      */
     private int minDepth(Node parent, int currentDepth, int lowestSoFar) {
-        if (parent.left != null) {
-            minDepth(parent.left, currentDepth + 1, lowestSoFar);
-        }
-        if (parent.right != null) {
-            minDepth(parent.right, currentDepth + 1, lowestSoFar);
-        }
         if (parent.right == null && parent.left == null) {
             if (currentDepth < lowestSoFar) {
-                lsf = currentDepth;
+                lowestSoFar = currentDepth;
             }
         }
-        return lsf;
+        if (parent.left != null) {
+            lowestSoFar = minDepth(parent.left, currentDepth + 1, lowestSoFar);
+        }
+        if (parent.right != null) {
+            lowestSoFar = minDepth(parent.right, currentDepth + 1, lowestSoFar);
+        }
+        return lowestSoFar;
     }
 }
 

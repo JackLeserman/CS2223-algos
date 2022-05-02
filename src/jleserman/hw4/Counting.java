@@ -44,7 +44,6 @@ public class Counting {
 				}
 				int avHeight = avlTree.height();
 				int mindepth = avlTree.minDepth();
-				System.out.println((mindepth));
 				int depthDiff = avHeight - mindepth;
 				int numZeros  = avlTree.getZeroCounts();
 				if(avHeight > MaxAVHt){ MaxAVHt = avHeight;}
@@ -61,7 +60,7 @@ public class Counting {
 				if(numZeroR > MaxAVZrRB){MaxAVZrRB = numZeroR;}
 			}
 			double AVZeroPerc = ((double) MaxAVZr / (double) (N-1)) * 100;
-			String AVLStr = (N + "\t" + MaxAVHt + "\t" + MaxAVDf + "\t" + MaxAVZr + "\t" + Math.round(AVZeroPerc) + "%"); //AVL
+			String AVLStr = (N-1 + "\t" + MaxAVHt + "\t" + MaxAVDf + "\t" + MaxAVZr + "\t" + Math.round(AVZeroPerc) + "%"); //AVL
 			double RBZeroPerc = ((double) MaxAVZrRB / (double) (N-1)) * 100;
 			String RBTstr = (MaxRBHt + "\t" + MaxRBDf + "\t" + MaxAVZrRB + "\t" +  Math.round(RBZeroPerc) + "%");//RBT
 			System.out.println(AVLStr + "\t" + RBTstr);
