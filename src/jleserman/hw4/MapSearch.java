@@ -1,16 +1,12 @@
 package jleserman.hw4;
-import java.util.*;
-import java.io.*;
+
+
 import algs.hw4.map.HighwayMap;
 import algs.hw4.map.Information;
-import algs.maze.Position;
 import edu.princeton.cs.algs4.*;
 import edu.princeton.cs.algs4.Queue;
-
-import javax.annotation.processing.SupportedSourceVersion;
-import java.awt.*;
-import java.util.Iterator;
-import java.util.LinkedList;
+import edu.princeton.cs.algs4.DepthFirstPaths;
+import edu.princeton.cs.algs4.BreadthFirstPaths;
 
 /**
  * Copy this class into USERID.hw4 and make changes.
@@ -43,65 +39,33 @@ public class MapSearch {
 	static int maxEast;
 	static int edgeCts;
 
-	public static void BreadthFirstPaths(Graph G, int s, int target) {
-		marked = new boolean[G.V()];
-		distTo = new int[G.V()];
-		edgeTo = new int[G.V()];
-		bfs(G, s, target);
+	static int dfsCounts(Graph g, int source, int target) {
+		DepthFirstPaths dfs = new DepthFirstPaths(g, source);
+		Iterable<Integer> s = dfs.pathTo(target);
+		int count = 0;
+		for (int i : s) { count++; }
+		return count-1;
 	}
 
-	private static void bfs(Graph G, int s, int target) {
-		Queue<Integer> q = new Queue<Integer>();
-		for (int v = 0; v < G.V(); v++) { distTo[v] = INFINITY; }
-		distTo[s] = 0;
-		marked[s] = true;
-		q.enqueue(s);
-
-		while (!q.isEmpty()) {
-			int v = q.dequeue();
-			for (int w : G.adj(v)) {
-				if (!marked[w]) {
-					edgeTo[w] = v;
-					distTo[w] = distTo[v] + 1;
-					marked[w] = true;
-					q.enqueue(w);
-					if (v == target) {
-						edgeCts = q.size();
-						System.out.println(edgeCts);
-						return;
-					}
-				}
-			}
-		}
+	static int bfsCounts(Graph g, int source, int target) {
+		BreadthFirstPaths bfs = new BreadthFirstPaths(g,source);
+		Iterable<Integer> s = bfs.pathTo(target);
+		int count = 0;
+		for (int i : s) { count++;}
+		return count-1;
 	}
-
-
 
 	static Information remove_M25_segments(Information info) {
 		int s = 0;
 		edu.princeton.cs.algs4.Graph G = info.graph;
 		edu.princeton.cs.algs4.Graph copy = new edu.princeton.cs.algs4.Graph(G.V());
-		Queue<Integer> q = new Queue<Integer>();
-		for (int v = 0; v < G.V(); v++) {
-			distTo[v] = INFINITY;
-		}
-		distTo[s] = 0;
-		marked[s] = true;
-		q.enqueue(s);
 
-		while (!q.isEmpty()) {
-			int v = q.dequeue();
-			for (int w : G.adj(v)) {
-				if (!marked[w]) {
-					edgeTo[w] = v;
-					distTo[w] = distTo[v] + 1;
-					marked[w] = true;
-					q.enqueue(w);
-					//for(int edge : edgeTo){
-					String name = info.labels.get(w);
-					if (!name.contains("M25")) {
-						copy.addEdge(w, v);
-					}
+		for(int w = 0; w < G.V(); w++){
+			for(int v : G.adj(w)){
+				String wName = info.labels.get(w);
+				String vName = info.labels.get(v);
+				if(!vName.contains("M25") && !wName.contains("M25")){
+					copy.addEdge(v,w);
 				}
 			}
 		}
@@ -211,32 +175,32 @@ public class MapSearch {
 		String nameSouth = info.labels.get(south);
 
 		System.out.println("BreadthFirst Search from West to East:");
-		BreadthFirstPaths(info.graph, west, east);
-		System.out.println("BFS: " + nameWest + "(" + maxWest + ") to " + nameEast + "(" + maxEast + ") has " + distTo[east] + " edges.");
+		int countsWE = bfsCounts(info.graph, east,west);
+		System.out.println("BFS: " + nameWest + "(" + maxWest + ") to " + nameEast + "(" + maxEast + ") has " + countsWE + " edges.");
 
 		System.out.println("\nBreadthFirst Search from South to North:");
-		BreadthFirstPaths(info.graph, south, north);
-		System.out.println("BFS: " + nameSouth + "(" + south + ") to " + nameNorth + "(" + north + ") has " + distTo[north] + " edges.");
+		int countsSN = bfsCounts(info.graph, south,north);
+		System.out.println("BFS: " + nameSouth + "(" + south + ") to " + nameNorth + "(" + north + ") has " + countsSN + " edges.");
 		
 		System.out.println("\nDepthFirst Search from West to East:");
-		// DO SOME WORK HERE
-		System.out.println("DFS: " + "SOMEPLACE" + "(" + 999 + ") to " + "SOMEPLACE" + "(" + 999 + ") has " + 9999 + " edges.");
+		int countEW = dfsCounts(info.graph, west,east);
+		System.out.println("DFS: " + nameWest + "(" + maxWest + ") to " + nameEast + "(" + maxEast + ") has " + countEW + " edges.");
 		
 		System.out.println("\nDepthFirst Search from South to North:");
-		// DO SOME WORK HERE
-		System.out.println("DFS: " + "SOMEPLACE" + "(" + 999 + ") to " + "SOMEPLACE" + "(" + 999 + ") has " + 9999 + " edges.");
-
+		int countSN = dfsCounts(info.graph, south,north);
+		System.out.println("DFS: " + nameSouth + "(" + maxSouth + ") to " + nameNorth + "(" + maxNorth + ") has " + countSN + " edges.");
 
 		System.out.println("\nNow without M25 edges...\n");
-		System.out.println("WEST to EAST");
 		Information info_no_m25 = remove_M25_segments(info);
-		BreadthFirstPaths(info_no_m25.graph, west, east);
-		System.out.println("BFS: " + nameWest + "(" + maxWest + ") to " + nameEast + "(" + maxEast + ") has " + distTo[east] + " edges.");
-		// DO SOME WORK HERE
+
+		System.out.println("WEST to EAST (BFS)");
+		int WE25 = bfsCounts(info_no_m25.graph, west, east);
+		System.out.println("BFS: " + nameWest + "(" + maxWest + ") to " + nameEast + "(" + maxEast + ") has " + WE25 + " edges.");
+
 		
-		System.out.println("\nNORTH to SOUTH");
-		// DO SOME WORK HERE
-		System.out.println("BFS: " + "SOMEPLACE" + "(" + 999 + ") to " + "SOMEPLACE" + "(" + 999 + ") has " + 9999 + " edges.");
+		System.out.println("\nNORTH to SOUTH (BFS)");
+		int NS25 = bfsCounts(info_no_m25.graph, north, south);
+		System.out.println("BFS: " + nameNorth + "(" + maxNorth + ") to " + nameSouth + "(" + maxSouth + ") has " + NS25 + " edges.");
 				
 	}
 	
