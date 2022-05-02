@@ -82,6 +82,11 @@ public class MapSearch {
 		
 		edu.princeton.cs.algs4.Graph g = info.graph;
 		edu.princeton.cs.algs4.Graph copy = new edu.princeton.cs.algs4.Graph(g.V());
+		int v = info.graph.V();
+		for(int i = 0; i<v-1; i++){
+			String name = info.labels.get(i);
+			//if(!! name contains m25) add
+		}
 		
 		Information newInfo = new Information(copy, info.positions, info.labels);
 		return newInfo;
